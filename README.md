@@ -1,6 +1,6 @@
-# TemplateRepo
+# MyBuisnessCard
 
-Шаблонный репозиторий для проектов с использованием Vite, TypeScript, SCSS, Husky Jest и Cypress.
+Сайт визитка
 
 ## Стек технологий:
 

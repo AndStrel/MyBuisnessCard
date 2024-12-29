@@ -1,2 +1,32 @@
-@use './base/reset.scss';
-@use './base/typography.scss';
+@use './base/reset.scss' as *;
+@use './base/typography.scss' as *;
+@use './utils/variables.scss' as *;
+@use './utils/mixins.scss' as *;
+
+:root {
+  font-family: $fontManrope;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: $colorDark;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $colorAccent;
+}
+
+body {
+  background-color: $colorDark;
+  color: $colorLight;
+}

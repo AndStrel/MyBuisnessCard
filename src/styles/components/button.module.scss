@@ -1,6 +1,6 @@
 @use '../utils/variables.scss' as *;
 .button {
-  background-color: $primary-color; // Используем переменные из variables.scss
+  background-color: $colorAccent; // Используем переменные из variables.scss
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
@@ -14,11 +14,11 @@
   }
 
   &__primary {
-    background-color: $primary-color;
+    background-color: $colorDark;
   }
 
   &__secondary {
-    background-color: $secondary-color;
+    background-color: $colorDark;
   }
 
   &:hover {

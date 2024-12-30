@@ -1,15 +1,25 @@
 import { HomePage } from '@pages/homePage';
-import { ProfilePage } from '@pages/profilePage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom';
+import styles from '@styles/components/app.module.scss';
+import { AboutPage } from '@pages/aboutPage';
 
 export const App: React.FC = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-      </Routes>
-    </Router>
+    <div className={styles.app}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </Router>
+    </div>
   );
 };
 

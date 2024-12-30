@@ -1,0 +1,7 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles/utils/mixins.scss' as *;
+
+.app {
+  @include flex-center;
+  height: 100vh;
+}

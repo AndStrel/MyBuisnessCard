@@ -1,21 +1,9 @@
 @use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles/utils/mixins.scss' as *;
 
-.container {
-  display: flex;
+.profilePageUI {
+  @include flex-center;
   flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  &__title {
-    font-family: $fontNunitoSans;
-    font-size: 32px;
-    font-weight: 700;
-  }
-  &__subtitle {
-    font-size: 24px;
-    font-weight: 700;
-  }
-  &__description {
-    font-size: 20px;
-    font-weight: 400;
-  }
+  gap: 20px;
+  color: $colorLight;
 }

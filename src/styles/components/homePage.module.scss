@@ -1,0 +1,72 @@
+@use '../utils/variables.scss' as *;
+@use '../utils/mixins.scss' as *;
+
+.home {
+  @include flex-center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  @include flex-between;
+  width: 100%;
+
+  &__logo {
+    color: $colorAccent;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  // &__button {
+
+  // }
+}
+
+.main {
+  @include flex-center;
+  flex-direction: column;
+}
+.showCase {
+  @include flex-center;
+  flex-direction: column;
+  gap: 10px;
+
+  &__titleContainer {
+    @include flex-center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__title {
+    font-family: $fontNunitoSans;
+    font-size: 120px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  &__button {
+    @include flex-center;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: $colorAccent;
+    font-size: 24px;
+    font-weight: 400;
+    color: $colorDark;
+    cursor: pointer;
+  }
+}
+
+.button {
+  @include flex-center;
+  border: none;
+  background-color: inherit;
+  font-size: 24px;
+  font-weight: 400;
+  color: $colorLight;
+  cursor: pointer;
+}

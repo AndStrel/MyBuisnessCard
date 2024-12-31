@@ -3,61 +3,88 @@
 
 .home {
   @include flex-center;
+  display: flex;
   flex-direction: column;
-  gap: 20px;
-}
+  max-width: 1280px;
 
-.header {
-  @include flex-between;
-  width: 100%;
+  margin-inline: auto;
 
-  &__logo {
-    color: $colorAccent;
-    font-size: 24px;
-    font-weight: 400;
+  .header {
+    @include flex-between;
+    width: 100%;
+    padding-top: 32px;
+
+    &__logo {
+      color: $colorAccent;
+      font-size: 24px;
+      font-weight: 400;
+      cursor: pointer;
+    }
   }
 
-  // &__button {
-
-  // }
-}
-
-.main {
-  @include flex-center;
-  flex-direction: column;
-}
-.showCase {
-  @include flex-center;
-  flex-direction: column;
-  gap: 10px;
-
-  &__titleContainer {
+  .main {
     @include flex-center;
     flex-direction: column;
-    gap: 10px;
-  }
-  &__title {
-    font-family: $fontNunitoSans;
-    font-size: 120px;
-    font-weight: 900;
-    text-transform: uppercase;
+
+    .showCase {
+      padding: 140px 0;
+      width: 100%;
+      &__titleContainer {
+        @include flex-start;
+        width: 100%;
+      }
+      &__title {
+        max-width: 865px;
+        & h1 {
+          font-family: $fontNunitoSans;
+          font-size: 120px;
+          font-weight: 900;
+          line-height: 163.68px;
+          text-transform: uppercase;
+        }
+      }
+
+      &__descriptionContainer {
+        &__description {
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 32.78px;
+        }
+      }
+
+      &__buttonContainer {
+        display: flex;
+        justify-content: flex-end;
+        &__button {
+          @include flex-center;
+          width: 200px;
+          height: 50px;
+          border: none;
+          border-radius: 10px;
+          background-color: $colorAccent;
+          font-size: 24px;
+          font-weight: 400;
+          color: $colorDark;
+          cursor: pointer;
+        }
+      }
+    }
+    .carousel {
+      @include flex-center;
+      flex-direction: column;
+      padding: 140px 0;
+    }
+    .portfolio {
+      @include flex-center;
+      flex-direction: column;
+      padding: 140px 0;
+    }
   }
 
-  &__description {
-    font-size: 24px;
-    font-weight: 400;
-  }
-  &__button {
+  .footer {
     @include flex-center;
-    width: 200px;
-    height: 50px;
-    border: none;
-    border-radius: 10px;
-    background-color: $colorAccent;
-    font-size: 24px;
-    font-weight: 400;
-    color: $colorDark;
-    cursor: pointer;
+    flex-direction: column;
+    padding: 140px 0;
   }
 }
 

@@ -1,8 +1,51 @@
 @use '/src/styles/utils/variables.scss' as *;
 @use '/src/styles/utils/mixins.scss' as *;
 
-.carousel {
+.container {
   @include flex-center;
-  flex-direction: column;
-  padding: 140px 0;
+  color: $colorAccent;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  width: 110vw;
+  &__wordContainer {
+    display: flex;
+    width: calc(100vh / 3);
+    // width: 33%;
+    &.left {
+      justify-content: space-around;
+      // transform: translateX(0%);
+      // transition: all 0.5s ease;
+    }
+    &.center {
+      white-space: nowrap;
+      width: min-content;
+    }
+    &.right {
+      justify-content: space-around;
+      transition: all 0.5s ease;
+      max-width: calc(100% / 3);
+    }
+  }
+  &__fixedText {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 65.57px;
+    margin-inline-end: 2rem;
+  }
+  &__wordShow {
+    margin-inline-start: 1rem;
+  }
+  &__word {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32.78px;
+    opacity: 0.7;
+  }
 }

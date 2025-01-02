@@ -1,0 +1,8 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles/utils/mixins.scss' as *;
+
+.carousel {
+  @include flex-center;
+  flex-direction: column;
+  padding: 140px 0;
+}

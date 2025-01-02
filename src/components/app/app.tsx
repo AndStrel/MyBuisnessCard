@@ -14,13 +14,7 @@ export const App: React.FC = () => {
     <div className={styles.app}>
       <Router>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <AboutPage />
-              // <Navigate to="/home" replace />
-            }
-          />
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>

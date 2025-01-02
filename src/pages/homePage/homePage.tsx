@@ -3,8 +3,16 @@ import { useNavigate } from 'react-router-dom';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
-  const hanleClick = () => {
+  const navigateClick = () => {
     navigate('/about');
   };
-  return <HomePageUI hanleClick={hanleClick} />;
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/public/resume.pdf';
+    link.download = 'resume.pdf';
+    link.click();
+  };
+  return (
+    <HomePageUI hanleClick={navigateClick} downloadResume={downloadResume} />
+  );
 };

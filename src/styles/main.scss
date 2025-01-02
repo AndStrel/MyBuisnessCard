@@ -3,7 +3,7 @@
 @use './utils/variables.scss' as *;
 @use './utils/mixins.scss' as *;
 
-:root {
+#root {
   font-family: $fontManrope;
 }
 
@@ -13,17 +13,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background-color: $colorDark;
-}
-::-webkit-scrollbar-thumb {
-  background-color: $colorAccent;
+  display: none;
 }
 
 body {

@@ -1,7 +1,6 @@
 @use '/src/styles/utils/variables.scss' as *;
 @use '/src/styles//utils/mixins.scss' as *;
 
-
 .portfolio {
   @include flex-center;
   flex-direction: column;

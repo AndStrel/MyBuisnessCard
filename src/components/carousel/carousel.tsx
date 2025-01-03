@@ -13,17 +13,27 @@ export const Carousel: React.FC = () => {
   ];
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [animationClass, setAnimationClass] = useState('');
 
   useEffect(() => {
+    // Запуск смены слова каждые 3 секунды
     const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+      setAnimationClass('leave'); // Анимация текущего слова (уход влево)
+      setTimeout(() => {
+        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+        setAnimationClass('enter'); // Анимация нового слова (появление справа)
+      }, 500); // Время совпадает с CSS-анимацией
     }, 3000);
 
     return () => clearInterval(interval);
   }, [words.length]);
 
-  const getWordByIndex = (offset: number) =>
-    words[(currentWordIndex + offset + words.length) % words.length];
-
-  return <CarouselUI getWordByIndex={getWordByIndex} />;
+  return (
+    <CarouselUI
+      getWordByIndex={(offset) =>
+        words[(currentWordIndex + offset + words.length) % words.length]
+      }
+      animationClass={animationClass}
+    />
+  );
 };

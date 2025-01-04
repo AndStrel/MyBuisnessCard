@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import styles from '@styles/components/app.module.scss';
 import { AboutPage } from '@pages/aboutPage';
+import { PathEnum } from '@utils/constants';
 
 export const App: React.FC = () => {
   return (
@@ -15,14 +16,11 @@ export const App: React.FC = () => {
       <Router>
         <Routes>
           <Route
-            path="/"
-            element={
-              <AboutPage />
-              // <Navigate to="/home" replace />
-            }
+            path={PathEnum.start}
+            element={<Navigate to={PathEnum.home} replace />}
           />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path={PathEnum.home} element={<HomePage />} />
+          <Route path={PathEnum.about} element={<AboutPage />} />
         </Routes>
       </Router>
     </div>

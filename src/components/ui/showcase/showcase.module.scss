@@ -1,0 +1,54 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles//utils/mixins.scss' as *;
+
+.showCase {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__titleContainer {
+    @include flex-start;
+    width: 100%;
+  }
+  &__title {
+    max-width: 865px;
+    & h1 {
+      font-family: $fontNunitoSans;
+      font-size: 120px;
+      font-weight: 900;
+      line-height: 163.68px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__descriptionContainer {
+    @include flex-start;
+    width: 100%;
+    margin: 40px 0 27px;
+  }
+  &__description {
+    max-width: 865px;
+  }
+  & p {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32.78px;
+  }
+
+  &__buttonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    &__button {
+      @include flex-center;
+      width: 200px;
+      height: 50px;
+      border: none;
+      border-radius: 10px;
+      background-color: $colorAccent;
+      font-size: 24px;
+      font-weight: 400;
+      color: $colorDark;
+      cursor: pointer;
+    }
+  }
+}

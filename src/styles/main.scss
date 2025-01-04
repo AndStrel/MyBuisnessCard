@@ -24,3 +24,18 @@ body {
   background-color: $colorDark;
   color: $colorLight;
 }
+
+section {
+  width: 100%;
+  margin-block: 140px;
+}
+
+button {
+  @include flex-center;
+  border: none;
+  background-color: inherit;
+  font-size: 24px;
+  font-weight: 400;
+  color: $colorLight;
+  cursor: pointer;
+}

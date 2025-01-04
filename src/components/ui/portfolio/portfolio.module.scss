@@ -4,5 +4,23 @@
 .portfolio {
   @include flex-center;
   flex-direction: column;
-  padding: 140px 0;
+  align-items: normal;
+  gap: 64px;
+  &__titleContainer {
+    @include flex-start;
+    margin: 40px 0 27px;
+  }
+  &__title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 65.57px;
+    text-transform: uppercase;
+  }
+  &__cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
 }

@@ -3,7 +3,7 @@ import styles from './carousel.module.scss';
 
 interface CarouselUIProps {
   getWordByIndex: (offset: number) => string;
-  animationClass: string; // Добавлено поле для управления анимацией
+  animationClass: string;
 }
 
 export const CarouselUI: React.FC<CarouselUIProps> = ({
@@ -11,7 +11,7 @@ export const CarouselUI: React.FC<CarouselUIProps> = ({
   animationClass,
 }) => {
   return (
-    <div id="carousel" className={styles.container}>
+    <section id="carousel" className={styles.container}>
       <div className={styles.carousel}>
         <div
           className={clsx(
@@ -27,17 +27,19 @@ export const CarouselUI: React.FC<CarouselUIProps> = ({
             styles.dinamicContainer,
           )}
         >
+          {/* Активное слово (меняется, появляется или исчезает с анимацией) */}
           <span
             className={clsx(
-              styles.carousel__word,
-              styles.carousel__wordActive,
-              animationClass === 'leave' && styles.carousel__wordLeave,
-              animationClass === 'enter' && styles.carousel__wordEnter,
-              // styles.carousel__wordActive,
+              styles.carousel__word, // Базовый стиль для слова
+              styles.carousel__wordActive, // Стиль активного слова
+              animationClass === 'leave' && styles.carousel__wordLeave, // Анимация ухода
+              animationClass === 'enter' && styles.carousel__wordEnter, // Анимация появления
+              animationClass === 'active' && styles.carousel__wordActive, // Стиль для активного состояния
             )}
           >
-            {getWordByIndex(0)}
+            {getWordByIndex(0)} {/* Текущее слово */}
           </span>
+
           <span
             className={clsx(styles.carousel__word, styles.carousel__wordOne)}
           >
@@ -70,6 +72,6 @@ export const CarouselUI: React.FC<CarouselUIProps> = ({
           </span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

@@ -1,5 +1,6 @@
 import { PortfolioUI } from '@ui/portfolio';
+import { cards } from '@utils/constants';
 
 export const Portfolio: React.FC = () => {
-  return <PortfolioUI />;
+  return <PortfolioUI cards={cards} />;
 };

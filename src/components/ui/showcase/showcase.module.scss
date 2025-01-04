@@ -5,8 +5,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  padding: 140px 0;
-  width: 100%;
+
   &__titleContainer {
     @include flex-start;
     width: 100%;

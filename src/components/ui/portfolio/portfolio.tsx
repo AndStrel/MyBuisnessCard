@@ -1,16 +1,19 @@
+import { TCard } from 'types/card';
 import styles from './portfolio.module.scss';
-
-export const PortfolioUI: React.FC = () => {
+import { Card } from '@components/card';
+interface PortfolioUIProps {
+  cards: TCard[];
+}
+export const PortfolioUI: React.FC<PortfolioUIProps> = ({ cards }) => {
   return (
     <section id="portfolio" className={styles.portfolio}>
       <div className={styles.portfolio__titleContainer}>
-        <h2 className={styles.portfolio__title}>мои проекты</h2>
+        <div className={styles.portfolio__title}>мои проекты</div>
       </div>
       <div className={styles.portfolio__cardsContainer}>
-        <article className={styles.portfolio__card}>card</article>
-        <article className={styles.portfolio__card}>card</article>
-        <article className={styles.portfolio__card}>card</article>
-        <article className={styles.portfolio__card}>card</article>
+        {cards.map((card) => (
+          <Card card={card} />
+        ))}
       </div>
     </section>
   );

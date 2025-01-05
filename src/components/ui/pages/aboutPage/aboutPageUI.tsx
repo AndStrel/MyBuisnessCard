@@ -1,4 +1,4 @@
-import style from '@styles/components/profilePageUI.module.scss';
+import style from './aboutPageUI.module.scss';
 interface AboutPageUIProps {
   hanleClick: () => void;
 }

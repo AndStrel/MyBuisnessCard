@@ -9,57 +9,45 @@ export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
   return (
     <footer className={styles.footer}>
       <section className={styles.contacts}>
-        <div className={styles.contacts__container}>
-          <div className={styles.contacts__titleContainer}>
-            <h2 className={styles.contacts__title}>контакты</h2>
+        <div className={styles.mainContainer}>
+          <div className={styles.firstBlock}>
+            <div className={styles.firstBlock__title}>контакты</div>
+            <div className={styles.firstBlock__description}>
+              <div className={styles.firstBlock__descriptionText}>
+                я открыт к сотрудничеству и новым проектам
+              </div>
+              <div>
+                <Link
+                  to="mailto: andstrelnikov@outlook.com"
+                  className={styles.firstBlock__descriptionLink}
+                >
+                  andstrelnikov@outlook.com
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className={styles.contacts__descriptionContainer}>
-            <p className={styles.contacts__description}>
-              я открыт к сотрудничеству и новым проектам
-            </p>
-            <Link
-              className={styles.contacts__link}
-              to="mailto: andstrelnikov@outlook.com"
-            >
-              andstrelnikov@outlook.com
-            </Link>
-          </div>
-          <div className={styles.contacts__buttonContainer}>
-            <button
-              className={clsx(styles.button, styles.contacts__button)}
-              onClick={downloadResume}
-            >
-              скачать резюме pdf
-            </button>
+          <div className={styles.secondBlock}>
+            <ul className={styles.secondBlock__list}>
+              <li className={styles.secondBlock__item}>
+                <Link to="https://github.com/AndStrel">github</Link>
+              </li>
+              <li className={styles.secondBlock__item}>
+                <Link to="https://t.me/andstrelnikov">telegram</Link>
+              </li>
+              <li className={styles.secondBlock__item}>
+                <Link to="https://linkedin.com/in/andstrelnikov">linkedIn</Link>
+              </li>
+            </ul>
           </div>
         </div>
-        <nav className={styles.contacts__linksContainer}>
-          <ul className={styles.contacts__links}>
-            <li>
-              <Link
-                className={styles.contacts__link}
-                to="https://github.com/AndStrel"
-              >
-                github
-              </Link>
-            </li>
-            <li>
-              <Link className={styles.contacts__link} to="https://t.me/xoz9ih">
-                telegram
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={styles.contacts__link}
-                to="https://linkedin.com/in/andstrelnikov"
-              >
-                LinkedIn
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <div className={styles.contacts__designerContainer}>
-          <Link className={styles.contacts__designer} to="#">
+        <div className={styles.linksBlock}>
+          <button
+            className={clsx(styles.linksBlock__button)}
+            onClick={downloadResume}
+          >
+            скачать резюме
+          </button>
+          <Link className={styles.linksBlock__designer} to="#">
             designed by Sasha Sol
           </Link>
         </div>

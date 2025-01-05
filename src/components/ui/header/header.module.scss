@@ -4,7 +4,7 @@
 .header {
   @include flex-between;
   width: 100%;
-  padding-top: 32px;
+  margin-block: 34px 33px;
 
   &__logo {
     color: $colorAccent;

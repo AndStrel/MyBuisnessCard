@@ -8,7 +8,7 @@ interface FooterUIProps {
 export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
   return (
     <footer className={styles.footer}>
-      <section className={styles.contacts}>
+      <section id="contacts" className={styles.contacts}>
         <div className={styles.mainContainer}>
           <div className={styles.firstBlock}>
             <div className={styles.firstBlock__title}>контакты</div>
@@ -45,7 +45,7 @@ export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
             className={clsx(styles.linksBlock__button)}
             onClick={downloadResume}
           >
-            скачать резюме
+            резюме
           </button>
           <Link className={styles.linksBlock__designer} to="#">
             designed by Sasha Sol

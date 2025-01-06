@@ -26,7 +26,7 @@ export const ShowcaseUI: React.FC<ShowcaseProps> = ({ scrollToSection }) => {
         <button
           className={clsx(styles.button, styles.showCase__button)}
           onClick={() => {
-            scrollToSection('portfolio');
+            scrollToSection('carousel');
           }}
         >
           вниз

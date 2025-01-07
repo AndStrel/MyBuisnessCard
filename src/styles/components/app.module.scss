@@ -2,6 +2,6 @@
 @use '/src/styles/utils/mixins.scss' as *;
 
 .app {
-  @include flex-center;
-  height: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
 }

@@ -1,0 +1,135 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles/utils/mixins.scss' as *;
+
+.container {
+  @include flex-center;
+  color: $colorAccent;
+  overflow: hidden;
+}
+
+.carousel {
+  @include flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  &__wordContainer {
+    display: flex;
+    align-items: center;
+
+    &.staticContainer {
+      width: min-content;
+    }
+    &.dinamicContainer {
+      gap: 20px;
+      max-width: 350px;
+    }
+  }
+
+  &__fixedText {
+    @include active-words;
+  }
+
+  &__word {
+    @include disabled-words;
+  }
+  &__wordActive {
+    @include active-words;
+    margin-inline-end: 0;
+    // transform: translateX(200%);
+    transition: transform 2s ease;
+  }
+  &__wordLeave {
+    @include disabled-words;
+    margin-inline-end: 0;
+    transform: translateX(+200%);
+    transition:
+      transform 1s ease,
+      opacity 1s ease,
+      font-size 1s ease;
+    // color 2s ease;
+  }
+  &__wordEnter {
+    @include active-words;
+    margin-inline-end: 0;
+    transform: translateX(0, 100%);
+    transition:
+      transform 1s ease,
+      opacity 1s ease,
+      font-size 1s ease;
+  }
+  // &__wordOne {
+  //   @include disabled-words;
+  //   // transform: translateX(500%);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordTwo {
+  //   @include disabled-words;
+
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordThree {
+  //   @include disabled-words;
+
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordFour {
+  //   @include disabled-words;
+
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordFive {
+  //   @include disabled-words;
+
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordSix {
+  //   @include disabled-words;
+
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+}
+
+@media screen and (max-width: 768px) {
+  .carouselContainer {
+    margin-block-end: 0;
+  }
+  .carousel {
+    padding-block: 15px;
+    &__wordContainer {
+      &.dinamicContainer {
+        // min-height: 66px;
+      }
+    }
+    & .staticContainer {
+      overflow-wrap: break-word;
+      white-space: normal;
+    }
+    &__fixedText {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.78px;
+      margin-inline-end: 1rem;
+    }
+
+    &__wordEnter {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.78px;
+      margin-inline-end: 1rem;
+      opacity: 1;
+    }
+    &__wordActive {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.78px;
+      margin-inline-end: 1rem;
+      opacity: 1;
+    }
+  }
+}

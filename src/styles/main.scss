@@ -24,3 +24,73 @@ body {
   background-color: $colorDark;
   color: $colorLight;
 }
+
+section {
+  width: 100%;
+  margin-block: 140px;
+}
+
+button {
+  @include flex-center;
+  border: none;
+  background-color: inherit;
+  font-size: 24px;
+  font-weight: 400;
+  color: $colorLight;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 400;
+  &:hover {
+    color: $colorAccent;
+    transition: color 0.5s ease;
+  }
+}
+
+h1 {
+  font-family: $fontNunitoSans;
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 163.68px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 65.57px;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32.78px;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 44px;
+    line-height: 65.47px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 32.78px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 21.86px;
+  }
+
+  button {
+    font-size: 16px;
+    line-height: 21.86px;
+    padding: 0;
+  }
+}

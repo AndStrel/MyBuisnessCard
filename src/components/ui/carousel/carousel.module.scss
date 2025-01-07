@@ -3,7 +3,6 @@
 
 .container {
   @include flex-center;
-
   color: $colorAccent;
   overflow: hidden;
 }
@@ -59,39 +58,79 @@
       opacity 1s ease,
       font-size 1s ease;
   }
-  &__wordOne {
-    @include disabled-words;
-    // transform: translateX(500%);
-    transition: transform 2s ease;
-  }
-  &__wordTwo {
-    @include disabled-words;
+  // &__wordOne {
+  //   @include disabled-words;
+  //   // transform: translateX(500%);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordTwo {
+  //   @include disabled-words;
 
-    transform: translateX(0);
-    transition: transform 2s ease;
-  }
-  &__wordThree {
-    @include disabled-words;
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordThree {
+  //   @include disabled-words;
 
-    transform: translateX(0);
-    transition: transform 2s ease;
-  }
-  &__wordFour {
-    @include disabled-words;
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordFour {
+  //   @include disabled-words;
 
-    transform: translateX(0);
-    transition: transform 2s ease;
-  }
-  &__wordFive {
-    @include disabled-words;
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordFive {
+  //   @include disabled-words;
 
-    transform: translateX(0);
-    transition: transform 2s ease;
-  }
-  &__wordSix {
-    @include disabled-words;
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+  // &__wordSix {
+  //   @include disabled-words;
 
-    transform: translateX(0);
-    transition: transform 2s ease;
+  //   transform: translateX(0);
+  //   transition: transform 2s ease;
+  // }
+}
+
+@media screen and (max-width: 768px) {
+  .carouselContainer {
+    margin-block-end: 0;
+  }
+  .carousel {
+    padding-block: 15px;
+    &__wordContainer {
+
+      &.dinamicContainer {
+        // min-height: 66px;
+      }
+    }
+    & .staticContainer {
+      overflow-wrap: break-word;
+        white-space: normal;
+    }
+    &__fixedText {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.78px;
+      margin-inline-end: 1rem;
+    }
+
+    &__wordEnter {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.78px;
+      margin-inline-end: 1rem;
+      opacity: 1;
+    }
+    &__wordActive {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.78px;
+      margin-inline-end: 1rem;
+      opacity: 1;
+    }
   }
 }

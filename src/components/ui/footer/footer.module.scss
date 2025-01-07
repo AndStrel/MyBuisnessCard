@@ -83,3 +83,46 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  a {
+    font-size: 16px;
+    line-height: 21.86px;
+  }
+
+  .contacts {
+    position: relative;
+    margin-block-end: 0;
+    & .mainContainer {
+      flex-direction: column;
+      align-items: flex-start;
+      & .firstBlock {
+        gap: 32px;
+        margin-block-end: 20px;
+        &__description {
+          gap: 8px;
+        }
+      }
+      & .secondBlock {
+        &__list {
+          gap: 8px;
+          align-items: flex-start;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+    .linksBlock {
+      position: absolute;
+      bottom: 105px;
+
+      &__designer {
+        display: none;
+      }
+      &__button {
+        position: absolute;
+        right: 0px;
+      }
+    }
+  }
+}

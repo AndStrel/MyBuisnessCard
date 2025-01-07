@@ -11,10 +11,12 @@ export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
       <section id="contacts" className={styles.contacts}>
         <div className={styles.mainContainer}>
           <div className={styles.firstBlock}>
-            <div className={styles.firstBlock__title}>контакты</div>
+            <div className={styles.firstBlock__title}>
+              <h2>контакты</h2>
+            </div>
             <div className={styles.firstBlock__description}>
               <div className={styles.firstBlock__descriptionText}>
-                я открыт к сотрудничеству и новым проектам
+                <p>я открыт к сотрудничеству и новым проектам</p>
               </div>
               <div>
                 <Link

@@ -11,7 +11,10 @@ export const CarouselUI: React.FC<CarouselUIProps> = ({
   animationClass,
 }) => {
   return (
-    <section id="carousel" className={styles.container}>
+    <section
+      id="carousel"
+      className={clsx(styles.container, styles.carouselContainer)}
+    >
       <div className={styles.carousel}>
         <div
           className={clsx(

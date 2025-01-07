@@ -7,3 +7,13 @@
   max-width: 1280px;
   margin-inline: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .home {
+    padding-inline: 40px;
+  }
+  .main {
+    width: 100%;
+  }
+
+}

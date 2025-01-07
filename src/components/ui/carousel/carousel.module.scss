@@ -102,14 +102,13 @@
   .carousel {
     padding-block: 15px;
     &__wordContainer {
-
       &.dinamicContainer {
         // min-height: 66px;
       }
     }
     & .staticContainer {
       overflow-wrap: break-word;
-        white-space: normal;
+      white-space: normal;
     }
     &__fixedText {
       font-size: 24px;

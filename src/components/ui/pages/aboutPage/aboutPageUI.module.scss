@@ -1,9 +1,172 @@
 @use '/src/styles/utils/variables.scss' as *;
 @use '/src/styles/utils/mixins.scss' as *;
 
-.profilePageUI {
-  @include flex-center;
+.about {
+  display: flex;
   flex-direction: column;
-  gap: 20px;
-  color: $colorLight;
+  align-items: stretch;
+
+  .main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .photo {
+    margin-inline-end: 99px;
+
+    &__image {
+      display: block;
+      width: 100%;
+      max-height: 100vh;
+    }
+  }
+  .content {
+    display: flex;
+    justify-content: flex-end;
+    padding-inline-end: 80px;
+
+    &__infoContainer {
+      @include flex-center;
+      flex-direction: column;
+      max-width: 515px;
+      margin-block: 40px;
+      justify-content: space-evenly;
+    }
+    &__buttonContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-block-start: 40px;
+
+      & button {
+        transition: all 0.5s ease;
+        &:hover {
+          color: $colorAccent;
+          cursor: pointer;
+          text-shadow: 0px 0px 10px $colorAccent;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.stack {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 7px;
+    column-gap: 32px;
+    padding-inline: 0;
+    margin-block: 0;
+    list-style: none;
+    color: $colorAccent;
+  }
+  &__item {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32.78px;
+  }
+}
+
+.contacts {
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 120px;
+    row-gap: 40px;
+    padding-inline: 0;
+    margin-block: 0;
+  }
+}
+
+// @media screen and (min-width: 768px) and (max-width: 1440px) {
+//   .about {
+//     .photo {
+//       margin-inline-end: 40px;
+//     }
+//     .content {
+//       padding-inline-end: 40px;
+//     }
+//   }
+
+// }
+
+@media screen and (max-width: 768px) {
+  .about {
+    .main {
+      position: relative;
+      padding-inline: 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      grid-template-rows: repeat(3, auto);
+    }
+
+    .photo {
+      min-width: 153px;
+      margin-inline-end: 0;
+    }
+
+    .content {
+      display: grid;
+      grid-row-start: 2;
+      grid-row-end: 4;
+      grid-column: span 2;
+      padding-inline-end: 0;
+      &__infoContainer {
+        gap: 32px;
+        margin-block: 40px 80px;
+        & .container {
+          gap: 20px;
+        }
+        & .info {
+          display: grid;
+        }
+        & .stack {
+          &__item {
+            font-size: 16px;
+            line-height: 21.86px;
+          }
+        }
+        & .contacts {
+          display: grid;
+        }
+      }
+      &__buttonContainer {
+        position: absolute;
+        display: grid;
+        right: 40px;
+        top: 40px;
+        padding-block-start: 0;
+        & button {
+          font-size: 16px;
+          line-height: 21.86px;
+        }
+      }
+    }
+    .contacts {
+      position: absolute;
+      right: 40px;
+      top: 156px;
+      &__title {
+        display: none;
+      }
+      &__list {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+      }
+      & a {
+        font-size: 16px;
+        line-height: 21.86px;
+      }
+    }
+  }
 }

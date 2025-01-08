@@ -107,6 +107,7 @@
       display: grid;
       grid-template-columns: repeat(2, 50%);
       grid-template-rows: repeat(3, auto);
+      height: 100vh;
     }
 
     .photo {

@@ -8,7 +8,7 @@ interface HeaderUIProps {
 export const HeaderUI: React.FC<HeaderUIProps> = ({ hanleClick }) => {
   return (
     <header className={styles.header}>
-      <div className={styles.header__logo}>frontend разработчик</div>
+      <div className={styles.header__logo}>front-end разработчик</div>
       <button
         className={clsx(styles.button, styles.header__button)}
         onClick={hanleClick}

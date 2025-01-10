@@ -1,28 +1,122 @@
-import { HomePage } from '@pages/homePage';
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import styles from '@styles/components/app.module.scss';
+import { HomePage } from '@pages/homePage';
 import { AboutPage } from '@pages/aboutPage';
 import { PathEnum } from '@utils/constants';
+import gsap from 'gsap';
+import { Cursor } from '@components/ui/cursor/cursor';
 
 export const App: React.FC = () => {
+  const location = useLocation();
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const auraRef = useRef<HTMLDivElement>(null);
+
+  // Состояние для отслеживания, когда курсор выходит за пределы окна
+  const [cursorOut, setCursorOut] = useState(false);
+
+  // Состояние для отслеживания, когда курсор наводится на интерактивные элементы
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Обработчик для событий наведения курсора
+  const handleMouseEnter = () => {
+    setIsHovered(true); // Устанавливаем состояние, когда курсор наводится на элемент
+  };
+
+  // Обработчик для события ухода курсора
+  const handleMouseLeave = () => {
+    setIsHovered(false); // Сбрасываем состояние, когда курсор покидает элемент
+  };
+
+  // useEffect для управления кастомным курсором и анимацией ауры
+  useEffect(() => {
+    const cursor = cursorRef.current; // Ссылка на элемент кастомного курсора
+    const aura = auraRef.current; // Ссылка на элемент ауры
+    if (!cursor || !aura) return; // Если элементы отсутствуют, завершаем выполнение эффекта
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let posX = 0;
+    let posY = 0;
+
+    // Обработчик движения мыши
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorOut(false); // Убираем состояние "курсор вне окна"
+      mouseX = e.pageX; // Обновляем координаты X
+      mouseY = e.pageY; // Обновляем координаты Y
+    };
+
+    // Обработчик ухода курсора за пределы окна
+    const handleMouseOut = (e: MouseEvent) => {
+      if (
+        e.relatedTarget === null || // Уход за пределы окна
+        !(e.relatedTarget instanceof HTMLElement) // Нет нового целевого элемента
+      ) {
+        setCursorOut(true); // Устанавливаем состояние "курсор вне окна"
+      }
+    };
+
+    // Добавляем слушатели событий
+    document.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseout', handleMouseOut);
+
+    // Анимация кастомного курсора и ауры
+    const animation = gsap.to({}, 0.01, {
+      repeat: -1, // Бесконечный повтор
+      onRepeat: () => {
+        posX += (mouseX - posX) / 5; // Плавное приближение к позиции мыши
+        posY += (mouseY - posY) / 5;
+
+        // Обновление позиции кастомного курсора и ауры
+        gsap.set(cursor, { css: { left: mouseX, top: mouseY } });
+        gsap.set(aura, { css: { left: posX - 27, top: posY - 27 } });
+      },
+    });
+
+    // Очистка обработчиков и анимации при размонтировании
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseout', handleMouseOut);
+      animation.kill(); // Останавливаем анимацию
+    };
+  }, []); // Запускается один раз при монтировании
+
+  // useEffect для добавления обработчиков наведения на интерактивные элементы
+  useEffect(() => {
+    // Находим все интерактивные элементы (ссылки и кнопки)
+    const interactiveElements = document.querySelectorAll('a, button');
+
+    // Добавляем события для наведения и ухода курсора
+    interactiveElements.forEach((el) => {
+      el.addEventListener('mouseenter', handleMouseEnter);
+      el.addEventListener('mouseleave', handleMouseLeave);
+    });
+
+    // Удаляем обработчики при размонтировании или изменении пути
+    return () => {
+      interactiveElements.forEach((el) => {
+        el.removeEventListener('mouseenter', handleMouseEnter);
+        el.removeEventListener('mouseleave', handleMouseLeave);
+      });
+    };
+  }, [location.pathname]); // Срабатывает при изменении пути
+
   return (
     <div className={styles.app}>
-      <Router>
-        <Routes>
-          <Route
-            path={PathEnum.start}
-            element={<Navigate to={PathEnum.home} replace />}
-          />
-          <Route path={PathEnum.home} element={<HomePage />} />
-          <Route path={PathEnum.about} element={<AboutPage />} />
-        </Routes>
-      </Router>
+      <Cursor
+        cursorRef={cursorRef}
+        auraRef={auraRef}
+        cursorOut={cursorOut}
+        isHovered={isHovered}
+      />
+      <Routes>
+        <Route
+          path={PathEnum.start}
+          element={<Navigate to={PathEnum.home} replace />}
+        />
+        <Route path={PathEnum.home} element={<HomePage />} />
+        <Route path={PathEnum.about} element={<AboutPage />} />
+      </Routes>
     </div>
   );
 };

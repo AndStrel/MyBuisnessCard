@@ -1,0 +1,72 @@
+@use '/src/styles/utils/variables.scss' as *;
+
+.cursor,
+.aura {
+  position: absolute;
+  border-radius: 50%;
+  user-select: none;
+  pointer-events: none;
+  transition:
+    0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+    0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  z-index: 10000;
+}
+.cursor {
+  width: 5px;
+  height: 5px;
+  background-color: $colorAccent;
+  mix-blend-mode: difference;
+  transform: scale(1);
+
+  &.cursorOut {
+    opacity: 0;
+    transform: scale(0.001);
+    transition: all 1s ease;
+  }
+
+  &.hovered {
+    opacity: 0;
+  }
+}
+
+.aura {
+  width: 60px;
+  height: 60px;
+  background-color: $colorAccent;
+  mix-blend-mode: difference;
+  transform: scale(1);
+
+  &.cursorOut {
+    opacity: 0;
+    transform: scale(0.001);
+    transition: all 0.5s ease;
+  }
+
+  &.hovered {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes heartbeat {
+  from {
+    transform: scale(1.5);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  17% {
+    transform: scale(1.38);
+    animation-timing-function: ease-out;
+  }
+  33% {
+    transform: scale(1.17);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: scale(1.5);
+    animation-timing-function: ease-out;
+  }
+}

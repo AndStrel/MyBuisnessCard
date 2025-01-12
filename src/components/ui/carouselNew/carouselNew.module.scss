@@ -10,9 +10,10 @@
 .carousel {
   @include flex-start;
   flex-wrap: wrap;
+  white-space: nowrap;
   overflow: hidden;
   width: 100%;
-  white-space: nowrap;
+
 
   &__wordContainer {
     display: flex;
@@ -23,12 +24,12 @@
     }
 
     &.dinamicContainer {
-      width: 100%; /* или используйте другие пропорции в зависимости от дизайна */
-      max-width: 1000px; /* Ограничение максимальной ширины */
-      min-width: 150px; /* Ограничение минимальной ширины */
+      width: 100px;
+      max-width: 1000px;
+      min-width: 150px;
       position: relative;
       overflow: hidden;
-      // flex: 1;
+      flex: 1;
       &:before,
       &:after {
         content: '';
@@ -42,12 +43,12 @@
 
       &:before {
         left: 0;
-        background: linear-gradient(to right, #1a1a1a, rgba(255, 255, 255, 0));
+        background: linear-gradient(to right, $colorDark, transparent);
       }
 
       &:after {
         right: 0;
-        background: linear-gradient(to left, #1a1a1a, rgba(255, 255, 255, 0));
+        background: linear-gradient(to left, $colorDark, transparent);
       }
     }
   }
@@ -66,7 +67,7 @@
   }
 }
 
-.marquee {
+.doubleWords {
   display: flex;
   align-items: center;
   animation: scroll $animation-speed linear infinite;
@@ -85,16 +86,32 @@
   }
 }
 
-// @media (max-width: 768px) {
-//   .carousel__wordContainer {
-//     &.dinamicContainer {
-//       width: 80%;
-//       max-width: 250px;
-//     }
-//   }
+@media (max-width: 768px) {
+  .carousel {
+    flex-direction: column;
+    align-items: flex-start;
+    &__fixedText {
+      @include active-wordsMobile;
+    }
+  }
+  .carousel__wordContainer {
+    &.staticContainer {
+      overflow-wrap: break-word;
+      white-space: normal;
+    }
+    &.dinamicContainer {
+      width: 100%;
+      &:before,
+      &:after {
+        width: 10%; /* Ширина градиента */
+      }
+    }
+  }
 
-//   .word {
-//     font-size: 18px;
-//     margin: 0 0.5rem;
-//   }
-// }
+  .word {
+    @include disabled-wordsMobile;
+    &:hover {
+      @include active-wordsMobile;
+    }
+  }
+}

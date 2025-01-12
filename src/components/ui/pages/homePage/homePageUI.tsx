@@ -1,4 +1,3 @@
-import { Carousel } from '@components/carousel';
 import { Footer } from '@components/footer/footer';
 import { Header } from '@components/header';
 // import { Portfolio } from '@components/portfolio';
@@ -11,9 +10,8 @@ export const HomePageUI: React.FC = () => {
     <div className={styles.home}>
       <Header />
       <main className={styles.main}>
-        <CarouselNew />
         <Showcase />
-        <Carousel />
+        <CarouselNew />
         {/* <Portfolio /> */}
       </main>
       <Footer />

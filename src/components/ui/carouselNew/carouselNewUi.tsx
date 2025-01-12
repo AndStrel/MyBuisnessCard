@@ -7,7 +7,10 @@ interface Props {
 
 export const CarouselNewUI: React.FC<Props> = ({ words }) => {
   return (
-    <section className={clsx(styles.container, styles.carouselContainer)}>
+    <section
+      id="carousel"
+      className={clsx(styles.container, styles.carouselContainer)}
+    >
       <div className={styles.carousel}>
         <div
           className={clsx(
@@ -24,7 +27,7 @@ export const CarouselNewUI: React.FC<Props> = ({ words }) => {
           )}
         >
           {/* Основная строка с дублированием слов */}
-          <div className={styles.marquee}>
+          <div className={styles.doubleWords}>
             {words.concat(words).map((word, index) => (
               <div key={index} className={styles.word}>
                 {word}

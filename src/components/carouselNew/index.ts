@@ -1,0 +1,1 @@
+export { CarouselNew } from './carouselNew';

@@ -1,9 +1,9 @@
-import { Carousel } from '@components/carousel';
 import { Footer } from '@components/footer/footer';
 import { Header } from '@components/header';
 // import { Portfolio } from '@components/portfolio';
 import { Showcase } from '@components/showcase';
 import styles from './homePage.module.scss';
+import { CarouselNew } from '@components/carouselNew';
 
 export const HomePageUI: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ export const HomePageUI: React.FC = () => {
       <Header />
       <main className={styles.main}>
         <Showcase />
-        <Carousel />
+        <CarouselNew />
         {/* <Portfolio /> */}
       </main>
       <Footer />

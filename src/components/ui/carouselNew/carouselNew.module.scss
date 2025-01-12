@@ -1,0 +1,101 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles/utils/mixins.scss' as *;
+
+.container {
+  @include flex-center;
+  color: $colorAccent;
+  overflow: hidden;
+}
+
+.carousel {
+  @include flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+
+  &__wordContainer {
+    display: flex;
+    align-items: center;
+
+    &.staticContainer {
+      width: min-content;
+    }
+
+    &.dinamicContainer {
+     width: 100%; /* или используйте другие пропорции в зависимости от дизайна */
+    max-width: 1000px; /* Ограничение максимальной ширины */
+    min-width: 150px; /* Ограничение минимальной ширины */
+      position: relative;
+      overflow: hidden;
+      // flex: 1;
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 20%; /* Ширина градиента */
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      &:before {
+        left: 0;
+        background: linear-gradient(to right, #1a1a1a, rgba(255, 255, 255, 0));
+      }
+
+      &:after {
+        right: 0;
+        background: linear-gradient(to left, #1a1a1a, rgba(255, 255, 255, 0));
+      }
+    }
+  }
+
+  &__fixedText {
+    @include active-words;
+  }
+}
+
+.word {
+  @include disabled-words;
+  margin: 0 1rem;
+  transition: all 0.5s ease;
+  &:hover {
+    @include active-words;
+  }
+}
+
+.marquee {
+  display: flex;
+  align-items: center;
+  animation: scroll $animation-speed linear infinite;
+  will-change: transform; /* Улучшает производительность анимации */
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Смещение на половину длины строки */
+  }
+}
+
+
+// @media (max-width: 768px) {
+//   .carousel__wordContainer {
+//     &.dinamicContainer {
+//       width: 80%;
+//       max-width: 250px;
+//     }
+//   }
+
+//   .word {
+//     font-size: 18px;
+//     margin: 0 0.5rem;
+//   }
+// }

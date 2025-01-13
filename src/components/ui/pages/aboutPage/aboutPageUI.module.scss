@@ -50,6 +50,8 @@
 }
 
 .container {
+  width: 100%;
+  min-height: 218px;
   display: flex;
   flex-direction: column;
   gap: 40px;

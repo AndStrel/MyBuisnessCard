@@ -1,11 +1,16 @@
 import clsx from 'clsx';
 import style from './aboutPageUI.module.scss';
 import { Link } from 'react-router-dom';
+
 interface AboutPageUIProps {
-  hanleClick: () => void;
+  handleClick: () => void;
+  skillRefs: { [key: string]: React.RefObject<HTMLLIElement> };
 }
 
-export const AboutPageUI: React.FC<AboutPageUIProps> = ({ hanleClick }) => {
+export const AboutPageUI: React.FC<AboutPageUIProps> = ({
+  handleClick,
+  skillRefs,
+}) => {
   return (
     <div id="about" className={style.about}>
       <div className={style.main}>
@@ -29,17 +34,13 @@ export const AboutPageUI: React.FC<AboutPageUIProps> = ({ hanleClick }) => {
             <div className={clsx(style.container, style.stack)}>
               <h2 className={clsx(style.stack__title)}>навыки</h2>
               <ul className={clsx(style.stack__list)}>
-                <li className={clsx(style.stack__item)}>react</li>
-                <li className={clsx(style.stack__item)}>typescript</li>
-                <li className={clsx(style.stack__item)}>javascript</li>
-                <li className={clsx(style.stack__item)}>html</li>
-                <li className={clsx(style.stack__item)}>css</li>
-                <li className={clsx(style.stack__item)}>redux</li>
-                <li className={clsx(style.stack__item)}>git</li>
-                <li className={clsx(style.stack__item)}>jest</li>
-                <li className={clsx(style.stack__item)}>cypress</li>
-                <li className={clsx(style.stack__item)}>vite</li>
-                <li className={clsx(style.stack__item)}>webpack</li>
+                {Object.entries(skillRefs).map(([key, ref]) => (
+                  <li
+                    key={key}
+                    className={clsx(style.stack__item)}
+                    ref={ref}
+                  ></li>
+                ))}
               </ul>
             </div>
             <div className={clsx(style.container, style.contacts)}>
@@ -60,7 +61,7 @@ export const AboutPageUI: React.FC<AboutPageUIProps> = ({ hanleClick }) => {
             </div>
           </div>
           <div className={style.content__buttonContainer}>
-            <button onClick={hanleClick}>назад</button>
+            <button onClick={handleClick}>назад</button>
           </div>
         </div>
       </div>

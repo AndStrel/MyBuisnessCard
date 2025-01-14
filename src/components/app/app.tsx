@@ -6,9 +6,11 @@ import { AboutPage } from '@pages/aboutPage';
 import { PathEnum } from '@utils/constants';
 import gsap from 'gsap';
 import { Cursor } from '@components/ui/cursor/cursor';
-
+import { useGSAP } from '@gsap/react';
+gsap.registerPlugin(useGSAP);
 export const App: React.FC = () => {
   const location = useLocation();
+  const containerRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const auraRef = useRef<HTMLDivElement>(null);
 
@@ -28,58 +30,58 @@ export const App: React.FC = () => {
     setIsHovered(false); // Сбрасываем состояние, когда курсор покидает элемент
   };
 
-  // useEffect для управления кастомным курсором и анимацией ауры
-  useEffect(() => {
-    const cursor = cursorRef.current; // Ссылка на элемент кастомного курсора
-    const aura = auraRef.current; // Ссылка на элемент ауры
-    if (!cursor || !aura) return; // Если элементы отсутствуют, завершаем выполнение эффекта
+  useGSAP(
+    () => {
+      const container = containerRef.current;
+      const cursor = cursorRef.current; // Ссылка на элемент кастомного курсора
+      const aura = auraRef.current; // Ссылка на элемент ауры
+      if (!cursor || !aura) return; // Если элементы отсутствуют, завершаем выполнение эффекта
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let posX = 0;
-    let posY = 0;
+      let mouseX = 0;
+      let mouseY = 0;
+      let posX = 0;
+      let posY = 0;
 
-    // Обработчик движения мыши
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorOut(false); // Убираем состояние "курсор вне окна"
-      mouseX = e.pageX; // Обновляем координаты X
-      mouseY = e.pageY; // Обновляем координаты Y
-    };
+      // Обработчик движения мыши
+      const handleMouseMove = (e: MouseEvent) => {
+        setCursorOut(false); // Убираем состояние "курсор вне окна"
+        mouseX = e.pageX; // Обновляем координаты X
+        mouseY = e.pageY; // Обновляем координаты Y
+      };
 
-    // Обработчик ухода курсора за пределы окна
-    const handleMouseOut = (e: MouseEvent) => {
-      if (
-        e.relatedTarget === null || // Уход за пределы окна
-        !(e.relatedTarget instanceof HTMLElement) // Нет нового целевого элемента
-      ) {
-        setCursorOut(true); // Устанавливаем состояние "курсор вне окна"
-      }
-    };
+      // Обработчик ухода курсора за пределы окна
+      const handleMouseOut = (e: MouseEvent) => {
+        if (
+          e.relatedTarget === null || // Уход за пределы окна
+          !(e.relatedTarget instanceof HTMLElement) // Нет нового целевого элемента
+        ) {
+          setCursorOut(true); // Устанавливаем состояние "курсор вне окна"
+        }
+      };
 
-    // Добавляем слушатели событий
-    document.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseout', handleMouseOut);
+      // Добавляем слушатели событий
+      document.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseout', handleMouseOut);
 
-    // Анимация кастомного курсора и ауры
-    const animation = gsap.to({}, 0.01, {
-      repeat: -1, // Бесконечный повтор
-      onRepeat: () => {
-        posX += (mouseX - posX) / 5; // Плавное приближение к позиции мыши
-        posY += (mouseY - posY) / 5;
+      // Анимация кастомного курсора и ауры
+      gsap.to({}, 0.01, {
+        repeat: -1, // Бесконечный повтор
+        onRepeat: () => {
+          posX += (mouseX - posX) / 5; // Плавное приближение к позиции мыши
+          posY += (mouseY - posY) / 5;
 
-        // Обновление позиции кастомного курсора и ауры
-        gsap.set(cursor, { css: { left: mouseX, top: mouseY } });
-        gsap.set(aura, { css: { left: posX - 27, top: posY - 27 } });
-      },
-    });
-
-    // Очистка обработчиков и анимации при размонтировании
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseout', handleMouseOut);
-      animation.kill(); // Останавливаем анимацию
-    };
-  }, []); // Запускается один раз при монтировании
+          // Обновление позиции кастомного курсора и ауры
+          gsap.set(cursor, { css: { left: mouseX, top: mouseY } });
+          gsap.set(aura, { css: { left: posX - 27, top: posY - 27 } });
+        },
+      });
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseout', handleMouseOut);
+      };
+    },
+    { scope: containerRef },
+  );
 
   // useEffect для добавления обработчиков наведения на интерактивные элементы
   useEffect(() => {
@@ -102,7 +104,7 @@ export const App: React.FC = () => {
   }, [location.pathname]); // Срабатывает при изменении пути
 
   return (
-    <div className={styles.app}>
+    <div className={styles.app} ref={containerRef}>
       <Cursor
         cursorRef={cursorRef}
         auraRef={auraRef}

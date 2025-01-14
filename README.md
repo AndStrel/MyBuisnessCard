@@ -7,6 +7,7 @@
 - Vite
 - TypeScript
 - SCSS
+- GASP
 - Jest
 - Cypress
 

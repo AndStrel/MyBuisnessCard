@@ -7,6 +7,7 @@ import { PathEnum } from '@utils/constants';
 import gsap from 'gsap';
 import { Cursor } from '@components/ui/cursor/cursor';
 import { useGSAP } from '@gsap/react';
+import { TransitionComponent } from '@components/transition';
 gsap.registerPlugin(useGSAP);
 export const App: React.FC = () => {
   const location = useLocation();
@@ -116,11 +117,23 @@ export const App: React.FC = () => {
           path={PathEnum.start}
           element={<Navigate to={PathEnum.home} replace />}
         />
-        <Route path={PathEnum.home} element={<HomePage />} />
-        <Route path={PathEnum.about} element={<AboutPage />} />
+        <Route
+          path={PathEnum.home}
+          element={
+            <TransitionComponent>
+              <HomePage />
+            </TransitionComponent>
+          }
+        />
+        <Route
+          path={PathEnum.about}
+          element={
+            <TransitionComponent>
+              <AboutPage />
+            </TransitionComponent>
+          }
+        />
       </Routes>
     </div>
   );
 };
-
-export default App;

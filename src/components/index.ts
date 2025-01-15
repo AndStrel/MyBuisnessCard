@@ -4,3 +4,4 @@ export * from './carouselNew';
 export * from './portfolio';
 export * from './showcase';
 export * from './card';
+export * from './transition';

@@ -3,7 +3,9 @@ import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { useGSAP } from '@gsap/react';
 
+gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);
 type SkillKeys =
   | 'react'
@@ -52,7 +54,7 @@ export const AboutPage: React.FC = () => {
     navigate('/home');
   };
 
-  useEffect(() => {
+  useGSAP(() => {
     const timeline = gsap.timeline();
     skills.forEach(({ key, text }) => {
       const ref = skillRefs[key];
@@ -66,7 +68,7 @@ export const AboutPage: React.FC = () => {
         );
       }
     });
-  }, []);
+  });
 
   return <AboutPageUI handleClick={goHome} skillRefs={skillRefs} />;
 };

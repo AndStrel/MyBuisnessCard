@@ -4,7 +4,7 @@
 .header {
   @include flex-between;
   width: 100%;
-  margin-block: 34px 33px;
+  margin-block: 40px 27px;
 
   &__logo {
     color: $colorAccent;
@@ -13,24 +13,60 @@
   }
 
   &__button {
+    position: relative;
     transition: all 0.5s ease;
+    // overflow: hidden;
     &:hover {
       color: $colorAccent;
       text-shadow: 0px 0px 10px $colorAccent;
     }
-    // animation: heartbeat 1.5s ease-in-out infinite both;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      width: 100%;
+      height: 100%;
+      color: $colorAccent;
+      background-image: url('../../../assets/image/ArrowS.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: emergence 2.5s  infinite both;
+      transition: all 0.5s ease-in-out;
+    }
+
+
   }
 }
 
 @media screen and (max-width: 768px) {
   .header {
-    margin-block: 20px;
+    margin-block: 40px 10px;
 
     &__logo {
       max-width: 100px;
       font-size: 16px;
       line-height: 21.86px;
     }
+  }
+}
+
+@keyframes emergence {
+  // from {
+  //   transform: scaleX(0);
+  //   transform-origin: left center;
+  // }
+  // to {
+  //   transform: scaleX(1);
+  //   transform-origin: left center;
+  // }
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%); /* Смещение на половину длины строки */
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 

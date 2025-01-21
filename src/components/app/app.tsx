@@ -9,6 +9,7 @@ import { Cursor } from '@components/ui/cursor/cursor';
 import { useGSAP } from '@gsap/react';
 import { TransitionComponent } from '@components/transition';
 import { PageNotFound } from '@pages/PageNotFound';
+import { HelloPageUI } from '@components/ui/pages';
 gsap.registerPlugin(useGSAP);
 export const App: React.FC = () => {
   const location = useLocation();
@@ -139,6 +140,14 @@ export const App: React.FC = () => {
           element={
             <TransitionComponent>
               <PageNotFound />
+            </TransitionComponent>
+          }
+        />
+        <Route
+          path="/hello"
+          element={
+            <TransitionComponent>
+              <HelloPageUI />
             </TransitionComponent>
           }
         />

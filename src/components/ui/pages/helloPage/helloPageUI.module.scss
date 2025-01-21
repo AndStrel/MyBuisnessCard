@@ -1,0 +1,13 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles/utils/mixins.scss' as *;
+
+.hello {
+@include flex-center;
+text-align: center;
+width: 100%;
+height: 100vh;
+  &__title {
+    color: $colorAccent;
+  }
+}
+

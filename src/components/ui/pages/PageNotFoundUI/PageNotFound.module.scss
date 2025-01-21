@@ -1,0 +1,66 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles/utils/mixins.scss' as *;
+
+.PageNotFound {
+  @include flex-center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  max-width: 1280px;
+  margin-inline: auto;
+  & .section {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    color: $colorAccent;
+    text-align: center;
+  }
+  &__description {
+    text-align: left;
+  }
+  &__button {
+    position: relative;
+    // margin-block-start: 40px;
+    justify-content: end;
+
+    &::after {
+      content: '';
+      position: absolute;
+      rotate: 180deg;
+      top: 30px;
+      width: 92px;
+      height: 60%;
+      color: $colorAccent;
+      background-image: url('/src/assets/image/ArrowS.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: emergence 2.5s infinite both;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .PageNotFound {
+    &__title {
+      font-size: 120px;
+      margin-block: 80px;
+    }
+  }
+}
+
+@keyframes emergence {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0%); /* Смещение на половину длины строки */
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}

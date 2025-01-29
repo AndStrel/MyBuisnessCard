@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import styles from '@styles/components/app.module.scss';
 import { HomePage } from '@pages/homePage';
@@ -86,18 +86,23 @@ export const App: React.FC = () => {
   );
 
   // useEffect для добавления обработчиков наведения на интерактивные элементы
-  useEffect(() => {
-    // Находим все интерактивные элементы (ссылки и кнопки)
-    const interactiveElements = document.querySelectorAll('a, button');
+  useLayoutEffect(() => {
+    const addEventListeners = () => {
+      // Находим все интерактивные элементы (ссылки и кнопки)
+      const interactiveElements = document.querySelectorAll('a, button');
+      // Добавляем события для наведения и ухода курсора
+      interactiveElements.forEach((el) => {
+        el.addEventListener('mouseenter', handleMouseEnter);
+        el.addEventListener('mouseleave', handleMouseLeave);
+      });
+    };
 
-    // Добавляем события для наведения и ухода курсора
-    interactiveElements.forEach((el) => {
-      el.addEventListener('mouseenter', handleMouseEnter);
-      el.addEventListener('mouseleave', handleMouseLeave);
-    });
-
+    // Увеличиваем задержку, если анимация длится дольше
+    const timeoutId = setTimeout(addEventListeners, 700);
     // Удаляем обработчики при размонтировании или изменении пути
     return () => {
+      clearTimeout(timeoutId);
+      const interactiveElements = document.querySelectorAll('a, button');
       interactiveElements.forEach((el) => {
         el.removeEventListener('mouseenter', handleMouseEnter);
         el.removeEventListener('mouseleave', handleMouseLeave);

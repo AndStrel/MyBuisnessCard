@@ -1,33 +1,38 @@
 @use '/src/styles/utils/variables.scss' as *;
 @use '/src/styles/utils/mixins.scss' as *;
 
-.header {
-  @include flex-between;
+.PageNotFound {
+  @include flex-center;
+  flex-direction: column;
   width: 100%;
-  margin-block: 40px 27px;
-
-  &__logo {
-    color: $colorAccent;
-    font-size: 24px;
-    font-weight: 400;
+  height: 100vh;
+  max-width: 1280px;
+  margin-inline: auto;
+  & .section {
+    display: flex;
+    flex-direction: column;
   }
-
+  &__title {
+    color: $colorAccent;
+    text-align: center;
+  }
+  &__description {
+    text-align: left;
+  }
   &__button {
     position: relative;
-    transition: all 0.5s ease;
-    padding-inline: 0;
-    &:hover {
-      color: $colorAccent;
-      text-shadow: 0px 0px 10px $colorAccent;
-    }
+    // margin-block-start: 40px;
+    justify-content: end;
+
     &::after {
       content: '';
       position: absolute;
+      rotate: 180deg;
       top: 30px;
-      width: 100%;
-      height: 100%;
+      width: 92px;
+      height: 60%;
       color: $colorAccent;
-      background-image: url('../../../assets/image/ArrowS.svg');
+      background-image: url('/src/assets/image/ArrowS.svg');
       background-size: contain;
       background-repeat: no-repeat;
       animation: emergence 2.5s infinite both;
@@ -37,13 +42,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  .header {
-    margin-block: 40px 10px;
-
-    &__logo {
-      max-width: 100px;
-      font-size: 16px;
-      line-height: 21.86px;
+  .PageNotFound {
+    &__title {
+      font-size: 120px;
+      margin-block: 80px;
     }
   }
 }

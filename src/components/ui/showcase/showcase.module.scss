@@ -4,6 +4,20 @@
 .showCase {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    width: 30px;
+    height: 85%;
+    color: $colorAccent;
+    background-image: url('../../../assets/image/ArrowL.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: emergence 2.5s infinite both;
+    transition: all 0.5s ease-in-out;
+  }
 
   &__titleContainer {
     @include flex-start;
@@ -26,6 +40,7 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    visibility: hidden;
     &__button {
       @include flex-center;
       width: 200px;
@@ -36,7 +51,6 @@
       font-size: 24px;
       font-weight: 400;
       color: $colorDark;
-      cursor: pointer;
     }
   }
 }
@@ -47,6 +61,9 @@
   }
 
   .showCase {
+    &::after {
+      display: none;
+    }
     &__titleContainer {
       @include flex-center;
     }
@@ -59,6 +76,7 @@
     }
     &__buttonContainer {
       justify-content: flex-end;
+      visibility: visible;
     }
   }
 }

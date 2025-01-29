@@ -97,8 +97,8 @@ export const App: React.FC = () => {
       });
     };
 
-    // Увеличиваем задержку, если анимация длится дольше
-    const timeoutId = setTimeout(addEventListeners, 700);
+    // Увеличьте задержку, если анимация длится дольше
+    const timeoutId = setTimeout(addEventListeners, 500);
     // Удаляем обработчики при размонтировании или изменении пути
     return () => {
       clearTimeout(timeoutId);

@@ -3,8 +3,8 @@ import { FooterUI } from '@ui/footer';
 export const Footer: React.FC = () => {
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'resume.pdf';
+    link.href = '/Resume.pdf';
+    link.download = 'Resume.pdf';
     link.click();
   };
   return <FooterUI downloadResume={downloadResume} />;

@@ -34,15 +34,12 @@ jobs:
         run: |
           cp ./CNAME ./dist/CNAME
 
-      - name: Configure Git
+      - name: Deploy the project
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-
-      - name: Deploy the project
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run deploy
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/AndStrel/MyBuisnessCard.git
+          npm run deploy
 
       - name: Upload coverage
         if: success() && always()

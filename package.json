@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "test": "jest",
     "prepare": "husky",
-    "deploy": "cross-env GH_TOKEN=$GH_TOKEN gh-pages -d dist"
+    "deploy": "gh-pages -d dist -u \"github-actions-bot <actions@github.com>\""
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",

@@ -30,6 +30,10 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: Copy CNAME file
+        run: |
+          cp ./CNAME ./build/CNAME
+
       - name: Deploy the project
         run: npm run deploy
 

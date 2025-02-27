@@ -1,72 +1,35 @@
-import { SwitchTransition, Transition } from 'react-transition-group';
-import { useLocation } from 'react-router-dom';
-import gsap from 'gsap';
-import { useAppDispatch } from '@utils/store';
-import { toggleCompleted } from '@slices/transitionSlice';
-import { useRef } from 'react';
+// import { useEffect } from 'react';
+// import { useLocation } from 'react-router-dom';
+// import { CSSTransition, TransitionGroup } from 'react-transition-group';
+// import styles from './transition.module.scss';
 
-interface TransitionComponentProps {
-  children: React.ReactNode;
-}
+// interface TransitionComponentProps {
+//   children: React.ReactNode;
+// }
 
-export const TransitionComponent: React.FC<TransitionComponentProps> = ({
-  children,
-}) => {
-  const dispatch = useAppDispatch();
-  const location = useLocation();
-  const nodeRef = useRef<HTMLDivElement>(null); // Создаем реф для DOM-узла
+// export const TransitionComponent: React.FC<TransitionComponentProps> = ({
+//   children,
+// }) => {
+//   const location = useLocation();
 
-  const handleOnEnter = () => {
-    const node = nodeRef.current;
-    if (node) {
-      dispatch(toggleCompleted(false));
-      gsap.set(node, {
-        autoAlpha: 0,
-        xPercent: location.pathname === '/about' ? 100 : -100,
-      });
-      gsap
-        .timeline({
-          paused: true,
-          onComplete: () => {
-            dispatch(toggleCompleted(true));
-          },
-        })
-        .to(node, {
-          autoAlpha: 1,
-          xPercent: 0,
-          duration: 0.5,
-          ease: 'power2.out',
-        })
-        .play();
-    }
-  };
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+//   }, [location.pathname]);
 
-  const handleOnExit = () => {
-    const node = nodeRef.current;
-    if (node) {
-      gsap
-        .timeline({ paused: true })
-        .to(node, {
-          xPercent: location.pathname === '/about' ? 100 : -100,
-          autoAlpha: 0,
-          duration: 0.5,
-          ease: 'power2.in',
-        })
-        .play();
-    }
-  };
-
-  return (
-    <SwitchTransition>
-      <Transition
-        key={location.pathname}
-        timeout={500}
-        nodeRef={nodeRef} // Передаем nodeRef
-        onEnter={handleOnEnter} // Вызываем обработчик
-        onExit={handleOnExit} // Вызываем обработчик
-      >
-        {(state) => <div ref={nodeRef}>{children}</div>}
-      </Transition>
-    </SwitchTransition>
-  );
-};
+//   return (
+//     <TransitionGroup>
+//       <CSSTransition
+//         key={location.pathname}
+//         timeout={1000}
+//         classNames={{
+//           enter: styles['fade-enter'],
+//           enterActive: styles['fade-enter-active'],
+//           exit: styles['fade-exit'],
+//           exitActive: styles['fade-exit-active'],
+//         }}
+//       >
+//         <div>{children}</div>
+//       </CSSTransition>
+//     </TransitionGroup>
+//   );
+// };

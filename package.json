@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "test": "jest",
     "prepare": "husky",
-    "deploy": "gh-pages -d dist"
+    "deploy": "cp CNAME dist/CNAME && gh-pages -d dist"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",

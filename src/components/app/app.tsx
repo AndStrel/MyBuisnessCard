@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import {
   Route,
   Routes,
@@ -110,12 +110,12 @@ export const App: React.FC = () => {
         el.addEventListener('mouseleave', handleMouseLeave);
       });
     };
-
+    addEventListeners();
     // Увеличьте задержку, если анимация длится дольше
-    const timeoutId = setTimeout(addEventListeners, 500);
+    // const timeoutId = setTimeout(addEventListeners, 500);
     // Удаляем обработчики при размонтировании или изменении пути
     return () => {
-      clearTimeout(timeoutId);
+      // clearTimeout(timeoutId);
       const interactiveElements = document.querySelectorAll('a, button');
       interactiveElements.forEach((el) => {
         el.removeEventListener('mouseenter', handleMouseEnter);
@@ -123,6 +123,10 @@ export const App: React.FC = () => {
       });
     };
   }, [location.pathname]); // Срабатывает при изменении пути
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className={styles.app} ref={containerRef}>
@@ -137,38 +141,10 @@ export const App: React.FC = () => {
           path={PathEnum.start}
           element={<Navigate to={PathEnum.home} replace />}
         />
-        <Route
-          path={PathEnum.home}
-          element={
-            <TransitionComponent>
-              <HomePage />
-            </TransitionComponent>
-          }
-        />
-        <Route
-          path={PathEnum.about}
-          element={
-            <TransitionComponent>
-              <AboutPage />
-            </TransitionComponent>
-          }
-        />
-        <Route
-          path={PathEnum.project}
-          element={
-            <TransitionComponent>
-              <ProjectDetails />
-            </TransitionComponent>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <TransitionComponent>
-              <PageNotFound />
-            </TransitionComponent>
-          }
-        />
+        <Route path={PathEnum.home} element={<HomePage />} />
+        <Route path={PathEnum.about} element={<AboutPage />} />
+        <Route path={PathEnum.project} element={<ProjectDetails />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       {backgroundLocation && (
         <Routes>

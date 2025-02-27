@@ -3,14 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - develop
-  pull_request:
-    branches:
       - main
-      - develop
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,6 +29,9 @@ jobs:
 
       - name: Build the project
         run: npm run build
+
+      - name: Deploy the project
+        run: npm run deploy
 
       - name: Upload coverage
         if: success() && always()

@@ -6,16 +6,18 @@
   flex-direction: column;
   align-items: normal;
   gap: 64px;
+
   &__titleContainer {
     @include flex-start;
     margin: 40px 0 27px;
   }
+
   &__title {
     font-size: 48px;
     font-weight: 800;
     line-height: 65.57px;
-    text-transform: uppercase;
   }
+
   &__cardsContainer {
     display: flex;
     flex-wrap: wrap;

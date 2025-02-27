@@ -12,7 +12,7 @@ export const PortfolioUI: React.FC<PortfolioUIProps> = ({ cards }) => {
       </div>
       <div className={styles.portfolio__cardsContainer}>
         {cards.map((card) => (
-          <Card card={card} />
+          <Card key={card.id} card={card} />
         ))}
       </div>
     </section>

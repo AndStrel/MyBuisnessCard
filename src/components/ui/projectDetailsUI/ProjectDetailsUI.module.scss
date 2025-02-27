@@ -1,0 +1,114 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles//utils/mixins.scss' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  max-width: calc(1440px - 160px);
+
+  &__titleContainer {
+    margin-block-end: 60px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__imageContainer {
+    margin-inline-end: 40px;
+    width: 100%;
+
+    &__image {
+      display: block;
+      width: 300px;
+    }
+  }
+
+  &__link {
+    // display: none;
+    color: red;
+  }
+
+  &__textContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .descriptionContainer {
+    display: flex;
+    padding-inline: 40px;
+    margin-block-end: 40px;
+  }
+
+  .posibilitesAndStackContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    padding-inline: 40px;
+
+    & .posibilitesList {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      // &__item {}
+    }
+
+    & .stack {
+      color: $colorAccent;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    &__titleContainer {
+      margin-block: 30px;
+
+      &__title {
+        text-align: center;
+      }
+    }
+
+    &__content {
+      flex-direction: column;
+    }
+
+    &__imageContainer {
+      display: flex;
+      justify-content: center;
+      margin-block-end: 40px;
+    }
+
+    .posibilitesAndStackContainer {
+      & .stack {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    &__titleContainer {
+      &__title {
+        text-align: center;
+      }
+    }
+
+    .posibilitesAndStackContainer {
+      flex-direction: column-reverse;
+
+      & .stack {
+        text-align: center;
+      }
+    }
+  }
+}

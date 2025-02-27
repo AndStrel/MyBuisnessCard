@@ -13,7 +13,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -37,6 +36,7 @@ button {
   font-size: 24px;
   font-weight: 400;
   color: $colorLight;
+
   &:hover {
     cursor: none;
   }
@@ -48,8 +48,8 @@ a {
 
   font-size: 24px;
   font-weight: 400;
+
   &:hover {
-    color: $colorAccent;
     transition: color 0.5s ease;
     cursor: none;
   }

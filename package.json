@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "test": "jest",
     "prepare": "husky",
-    "deploy": "gh-pages -d dist"
+    "deploy": "cross-env GH_TOKEN=$GH_TOKEN gh-pages -d dist"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
@@ -38,6 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "cross-env": "^7.0.3",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",

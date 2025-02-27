@@ -1,11 +1,9 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { useDispatch as dispatchHook, useSelector as selectorHook } from 'react-redux';
 import authReducer from '@slices/authSlice/authSlice';
-import transitionReducer from '@slices/transitionSlice/transitionSlice';
 
 export const rootReducer = combineSlices({
   auth: authReducer,
-  transition: transitionReducer,
   // Другие слайсы
 });
 

@@ -13,7 +13,6 @@ import { PathEnum } from '@utils/constants';
 import gsap from 'gsap';
 import { Cursor } from '@components/ui/cursor/cursor';
 import { useGSAP } from '@gsap/react';
-import { TransitionComponent } from '@components/transition';
 import { PageNotFound } from '@pages/PageNotFound';
 import { Modal } from '@components/modal';
 import { ProjectDetails } from '@components/projectDetails';
@@ -111,8 +110,7 @@ export const App: React.FC = () => {
       });
     };
     addEventListeners();
-    // Увеличьте задержку, если анимация длится дольше
-    // const timeoutId = setTimeout(addEventListeners, 500);
+
     // Удаляем обработчики при размонтировании или изменении пути
     return () => {
       // clearTimeout(timeoutId);

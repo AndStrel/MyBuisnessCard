@@ -32,7 +32,7 @@ jobs:
 
       - name: Copy CNAME file
         run: |
-          cp ./CNAME ./build/CNAME
+          cp ./CNAME ./dist/CNAME
 
       - name: Deploy the project
         run: npm run deploy

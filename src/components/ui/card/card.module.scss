@@ -7,38 +7,52 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-block-end: 40px;
   transition: transform 0.5s ease;
 
   &:hover {
     filter: blur(0px);
     transform: scale(1.1);
     box-shadow: 0 0 10px 0 $colorAccent;
-    transition: transform 0.5s ease;
+    transition: all 0.5s ease;
+    z-index: 3;
+
     & .card__title {
+      font-size: 24px;
+      font-weight: 400;
       visibility: visible;
-      transition: visibility 0.5s ease;
+      transition: all 0.5s ease;
     }
 
-    & .card__description {
-      visibility: visible;
-      transition: visibility 0.5s ease;
-    }
-
-    & .card__button {
-      display: block;
-      transition: visibility 0.5s ease;
-    }
   }
+
   &__title {
     visibility: hidden;
   }
 
-  &__description {
-    visibility: hidden;
-  }
+}
 
-  &__button {
-    display: none;
+@media screen and (max-width: 450px) {
+  .card {
+    width: 140px;
+    height: calc(150px * 473 / 305);
+    padding-block-end: 20px;
+
+    &:hover {
+      & .card__title {
+        font-size: 12px;
+        font-weight: 400;
+
+      }
+    }
+
+    &__title {
+      font-size: 12px;
+
+    }
+
   }
 }

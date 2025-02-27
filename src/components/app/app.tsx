@@ -1,5 +1,11 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import {
+  Route,
+  Routes,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import styles from '@styles/components/app.module.scss';
 import { HomePage } from '@pages/homePage';
 import { AboutPage } from '@pages/aboutPage';
@@ -9,9 +15,17 @@ import { Cursor } from '@components/ui/cursor/cursor';
 import { useGSAP } from '@gsap/react';
 import { TransitionComponent } from '@components/transition';
 import { PageNotFound } from '@pages/PageNotFound';
+import { Modal } from '@components/modal';
+import { ProjectDetails } from '@components/projectDetails';
 gsap.registerPlugin(useGSAP);
 export const App: React.FC = () => {
   const location = useLocation();
+  // Определение старого фона при переходе по ссылке
+  const backgroundLocation = location.state?.background || null;
+  const navigate = useNavigate();
+  const closeModal = () => {
+    navigate(-1); // возвращаемся назад
+  };
   const containerRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const auraRef = useRef<HTMLDivElement>(null);
@@ -118,7 +132,7 @@ export const App: React.FC = () => {
         cursorOut={cursorOut}
         isHovered={isHovered}
       />
-      <Routes>
+      <Routes location={backgroundLocation || location}>
         <Route
           path={PathEnum.start}
           element={<Navigate to={PathEnum.home} replace />}
@@ -140,6 +154,14 @@ export const App: React.FC = () => {
           }
         />
         <Route
+          path={PathEnum.project}
+          element={
+            <TransitionComponent>
+              <ProjectDetails />
+            </TransitionComponent>
+          }
+        />
+        <Route
           path="*"
           element={
             <TransitionComponent>
@@ -148,6 +170,19 @@ export const App: React.FC = () => {
           }
         />
       </Routes>
+      {backgroundLocation && (
+        <Routes>
+          <Route
+            path={PathEnum.project}
+            element={
+              <Modal onClose={closeModal}>
+                <div>тут модалка</div>
+                {/* <ProjectDetails /> */}
+              </Modal>
+            }
+          />
+        </Routes>
+      )}
     </div>
   );
 };

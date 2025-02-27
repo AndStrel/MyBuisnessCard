@@ -42,7 +42,7 @@ export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
             </ul>
           </div>
         </div>
-        <div className={styles.linksBlock}>
+        {/* <div className={styles.linksBlock}>
           <button
             className={clsx(styles.linksBlock__button)}
             onClick={downloadResume}
@@ -52,7 +52,7 @@ export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
           <Link className={styles.linksBlock__designer} to="#">
             designed by Sasha Sol
           </Link>
-        </div>
+        </div> */}
       </section>
     </footer>
   );

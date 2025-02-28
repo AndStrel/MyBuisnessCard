@@ -8,7 +8,9 @@ export const PortfolioUI: React.FC<PortfolioUIProps> = ({ cards }) => {
   return (
     <section id="portfolio" className={styles.portfolio}>
       <div className={styles.portfolio__titleContainer}>
-        <div className={styles.portfolio__title}>мои проекты</div>
+        <div className={styles.portfolio__title}>
+          <h2>мои проекты</h2>
+        </div>
       </div>
       <div className={styles.portfolio__cardsContainer}>
         {cards.map((card) => (

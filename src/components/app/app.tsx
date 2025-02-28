@@ -15,7 +15,7 @@ import { Cursor } from '@components/ui/cursor/cursor';
 import { useGSAP } from '@gsap/react';
 import { PageNotFound } from '@pages/PageNotFound';
 import { Modal } from '@components/modal';
-import { ProjectDetails } from '@components/projectDetails';
+import { ProjectDetails } from '@pages/projectDetails';
 gsap.registerPlugin(useGSAP);
 export const App: React.FC = () => {
   const location = useLocation();

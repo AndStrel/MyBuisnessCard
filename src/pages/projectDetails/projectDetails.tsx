@@ -1,4 +1,4 @@
-import { ProjectDetailsUI } from '@components/ui/projectDetailsUI';
+import { ProjectDetailsUI } from '@components/ui/pages/projectDetailsUI';
 import { useParams } from 'react-router-dom';
 import { cards } from '@utils/constants';
 

@@ -35,12 +35,12 @@
     min-width: 305px;
     max-width: 305px;
     min-height: 545px;
-    // max-height: 545px;
     overflow: hidden;
 
     &__image {
       width: 100%;
       height: 100%;
+      max-height: 545px;
       object-fit: cover;
     }
 
@@ -104,7 +104,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .container {
     &__titleContainer {
       margin-block: 30px;
@@ -134,18 +134,64 @@
 }
 
 @media screen and (max-width: 425px) {
+  .projectDetails {
+    margin-block: 56px;
+    margin-inline: 40px;
+  }
+
+  .buttonContainer {
+    display: none;
+  }
+
   .container {
+    // width: 324px;
+    overflow: hidden;
+    margin: 0px;
+
     &__titleContainer {
+      margin-block: 0 40px;
+    }
+
+    &__content {
+      width: 100%;
+    }
+
+    &__imageContainer {
+      margin-inline: 0px;
+      min-width: 100%;
+      min-height: 350px;
+      max-height: 350px;
+      margin-block-end: 32px;
+    }
+
+    &__textContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
       &__title {
-        text-align: center;
+        min-width: 219px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21.86px;
+        margin-block-end: 20px;
       }
     }
 
-    .posibilitesAndStackContainer {
-      flex-direction: column-reverse;
+    .descriptionContainer {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .posibilitesContainer {
+      flex-direction: column;
+    }
+
+    .stackContainer {
+      flex-direction: column;
 
       & .stack {
-        text-align: center;
+        line-height: 32px;
       }
     }
   }

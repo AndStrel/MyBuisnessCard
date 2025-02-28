@@ -1,4 +1,4 @@
-import { ProjectDetailsUI } from '@components/ui/projectDetailsUI';
+import { ProjectDetailsUI } from '@components/ui/pages/projectDetailsUI';
 import { useParams } from 'react-router-dom';
 import { cards } from '@utils/constants';
 
@@ -14,5 +14,10 @@ export const ProjectDetails: React.FC = () => {
     return <div>Описание проекта скоро будет готово</div>;
   }
 
-  return <ProjectDetailsUI dataProject={dataProject} />;
+  return (
+    <ProjectDetailsUI
+      handleClick={() => window.history.back()}
+      dataProject={dataProject}
+    />
+  );
 };

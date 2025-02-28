@@ -1,0 +1,198 @@
+@use '/src/styles/utils/variables.scss' as *;
+@use '/src/styles//utils/mixins.scss' as *;
+
+.projectDetails {
+  margin-block: 40px 140px;
+  margin-inline: 80px;
+}
+
+.buttonContainer {
+  place-items: end;
+  margin-block-end: 67px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-inline: auto;
+  max-width: calc(1440px - 160px);
+
+  &__titleContainer {
+    margin-block-end: 64px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__imageContainer {
+    position: relative;
+    margin-inline-end: 128px;
+    min-width: 305px;
+    max-width: 305px;
+    min-height: 545px;
+    overflow: hidden;
+
+    &__image {
+      width: 100%;
+      height: 100%;
+      max-height: 545px;
+      object-fit: cover;
+    }
+
+    & .container__link {
+      position: absolute;
+      color: $colorAccent;
+      bottom: 0;
+      right: -100%;
+      transition: all 0.5s ease-in-out;
+    }
+
+    &:hover .container__link {
+      bottom: 10px;
+      right: 0px;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+
+  &__textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 59px;
+
+    &__title {
+      min-width: 219px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.78px;
+    }
+  }
+
+  .descriptionContainer {
+    display: flex;
+  }
+
+  .posibilitesContainer {
+    display: flex;
+    flex-direction: row;
+
+    & .posibilitesList {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 24px;
+      line-height: 32.78px;
+      font-weight: 400;
+    }
+  }
+
+  .stackContainer {
+    display: flex;
+    flex-direction: row;
+
+    & .stack {
+      word-spacing: 25px;
+      color: $colorAccent;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    &__titleContainer {
+      margin-block: 30px;
+
+      &__title {
+        text-align: center;
+      }
+    }
+
+    &__content {
+      flex-direction: column;
+    }
+
+    &__imageContainer {
+      display: flex;
+      justify-content: center;
+      margin-block-end: 40px;
+    }
+
+    .posibilitesAndStackContainer {
+      & .stack {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .projectDetails {
+    margin-block: 56px;
+    margin-inline: 40px;
+  }
+
+  .buttonContainer {
+    display: none;
+  }
+
+  .container {
+    // width: 324px;
+    overflow: hidden;
+    margin: 0px;
+
+    &__titleContainer {
+      margin-block: 0 40px;
+    }
+
+    &__content {
+      width: 100%;
+    }
+
+    &__imageContainer {
+      margin-inline: 0px;
+      min-width: 100%;
+      min-height: 350px;
+      max-height: 350px;
+      margin-block-end: 32px;
+    }
+
+    &__textContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      &__title {
+        min-width: 219px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21.86px;
+        margin-block-end: 20px;
+      }
+    }
+
+    .descriptionContainer {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .posibilitesContainer {
+      flex-direction: column;
+    }
+
+    .stackContainer {
+      flex-direction: column;
+
+      & .stack {
+        line-height: 32px;
+      }
+    }
+  }
+}

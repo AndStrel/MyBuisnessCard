@@ -14,7 +14,7 @@
     "test": "jest",
     "prepare": "husky",
     "predeploy": "cp CNAME dist/CNAME",
-    "deploy": "gh-pages -d dist -u \"github-actions-bot <actions@github.com>\" --clean"
+    "deploy": "gh-pages -d dist -u \"github-actions-bot <actions@github.com>\""
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",

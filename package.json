@@ -13,7 +13,8 @@
     "preview": "vite preview",
     "test": "jest",
     "prepare": "husky",
-    "deploy": "gh-pages -d dist -u \"github-actions-bot <actions@github.com>\""
+    "predeploy": "cp CNAME dist/CNAME",
+    "deploy": "gh-pages -d dist -u \"github-actions-bot <actions@github.com>\" --clean"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",

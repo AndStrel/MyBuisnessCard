@@ -25,3 +25,15 @@
     gap: 20px;
   }
 }
+
+@media screen and (max-width: 768px) {
+
+  .portfolio {
+    gap: 40px;
+
+    &__titleContainer {
+      margin: 0;
+    }
+  }
+
+}

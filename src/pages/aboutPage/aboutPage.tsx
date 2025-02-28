@@ -50,9 +50,6 @@ export const AboutPage: React.FC = () => {
   ];
 
   const navigate = useNavigate();
-  const goHome = () => {
-    navigate('/home');
-  };
 
   useGSAP(() => {
     const timeline = gsap.timeline();
@@ -70,5 +67,10 @@ export const AboutPage: React.FC = () => {
     });
   });
 
-  return <AboutPageUI handleClick={goHome} skillRefs={skillRefs} />;
+  return (
+    <AboutPageUI
+      handleClick={() => window.history.back()}
+      skillRefs={skillRefs}
+    />
+  );
 };

@@ -14,5 +14,10 @@ export const ProjectDetails: React.FC = () => {
     return <div>Описание проекта скоро будет готово</div>;
   }
 
-  return <ProjectDetailsUI dataProject={dataProject} />;
+  return (
+    <ProjectDetailsUI
+      handleClick={() => window.history.back()}
+      dataProject={dataProject}
+    />
+  );
 };

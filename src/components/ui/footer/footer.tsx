@@ -42,17 +42,20 @@ export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
             </ul>
           </div>
         </div>
-        {/* <div className={styles.linksBlock}>
-          <button
+        <div className={styles.linksBlock}>
+          {/* <button
             className={clsx(styles.linksBlock__button)}
             onClick={downloadResume}
           >
             резюме
-          </button>
-          <Link className={styles.linksBlock__designer} to="#">
+          </button> */}
+          <Link
+            className={styles.linksBlock__designer}
+            to="https://www.behance.net/sashasol"
+          >
             designed by Sasha Sol
           </Link>
-        </div> */}
+        </div>
       </section>
     </footer>
   );

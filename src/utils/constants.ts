@@ -2,7 +2,6 @@ import { TCard } from 'types/card';
 
 export enum PathEnum {
   start = '/',
-  home = '/home',
   about = '/about',
   project = '/projects/:id',
 }

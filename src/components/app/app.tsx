@@ -135,11 +135,7 @@ export const App: React.FC = () => {
         isHovered={isHovered}
       />
       <Routes location={backgroundLocation || location}>
-        <Route
-          path={PathEnum.start}
-          element={<Navigate to={PathEnum.home} replace />}
-        />
-        <Route path={PathEnum.home} element={<HomePage />} />
+        <Route path={PathEnum.start} element={<HomePage />} />
         <Route path={PathEnum.about} element={<AboutPage />} />
         <Route path={PathEnum.project} element={<ProjectDetails />} />
         <Route path="*" element={<PageNotFound />} />

@@ -1,6 +1,6 @@
 # MyBusinessCard
 
-![CI](https://github.com/andstrelnikov/mybusinesscard/.github/workflows/ci.yaml/badge.svg)
+![CI](https://github.com/andstrelnikov/mybusinesscard/actions/workflows/ci.yaml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fandstrelnikov.ru)
 ![Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)

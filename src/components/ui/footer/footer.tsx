@@ -53,7 +53,7 @@ export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
             className={styles.linksBlock__designer}
             to="https://www.behance.net/sashasol"
           >
-            designed by Sasha Sol
+            designed by Sasha Solweb
           </Link>
         </div>
       </section>

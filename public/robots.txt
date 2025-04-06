@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+Allow: /
+
+Sitemap: https://andstrelnikov.ru/sitemap.xml

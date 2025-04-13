@@ -11,14 +11,14 @@ export const HeaderUI: React.FC<HeaderUIProps> = ({ hanleClick, language }) => {
   return (
     <header className={styles.header}>
       <div className={styles.header__logo}>front-end {t('profession')}</div>
-      {/* <div className={styles.header__language}>
+      <div className={styles.header__language}>
         <button className={styles.button} onClick={() => language('en')}>
           EN
         </button>
         <button className={styles.button} onClick={() => language('ru')}>
           RU
         </button>
-      </div> */}
+      </div>
       <button
         className={clsx(styles.button, styles.header__button)}
         onClick={hanleClick}

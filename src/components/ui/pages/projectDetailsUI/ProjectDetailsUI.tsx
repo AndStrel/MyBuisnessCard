@@ -1,16 +1,18 @@
 import { memo } from 'react';
 import { ProjectDetailsUIProps } from 'types/ProjectDetails';
 import style from './ProjectDetailsUI.module.scss';
+import { useTranslation } from 'react-i18next';
 
 export const ProjectDetailsUI: React.FC<ProjectDetailsUIProps> = memo(
   ({ handleClick, dataProject }) => {
     const { id, title, image, description, posibilites, stack, link } =
       dataProject;
+    const { t } = useTranslation();
 
     return (
       <div className={style.projectDetails}>
         <div className={style.buttonContainer}>
-          <button onClick={handleClick}>назад</button>
+          <button onClick={handleClick}>{t('back')}</button>
         </div>
         <div className={style.container}>
           {title.length > 0 ? (
@@ -29,7 +31,7 @@ export const ProjectDetailsUI: React.FC<ProjectDetailsUIProps> = memo(
                   />
                   {link && (
                     <a href={link} className={style.container__link}>
-                      Ссылочка
+                      {t('link')}
                     </a>
                   )}
                 </div>
@@ -37,13 +39,13 @@ export const ProjectDetailsUI: React.FC<ProjectDetailsUIProps> = memo(
                 <div className={style.container__textContainer}>
                   <div className={style.descriptionContainer}>
                     <div className={style.container__textContainer__title}>
-                      описание
+                      {t('info')}
                     </div>
                     <p>{description}</p>
                   </div>
                   <div className={style.posibilitesContainer}>
                     <div className={style.container__textContainer__title}>
-                      задачи
+                      {t('tasks')}
                     </div>
                     <ul className={style.posibilitesList}>
                       {posibilites?.map((item, index) => (
@@ -55,7 +57,7 @@ export const ProjectDetailsUI: React.FC<ProjectDetailsUIProps> = memo(
                   </div>
                   <div className={style.stackContainer}>
                     <div className={style.container__textContainer__title}>
-                      стек
+                      {t('stack')}
                     </div>
                     <p className={style.stack}>
                       {stack?.join(' ').toLocaleLowerCase()}
@@ -65,9 +67,7 @@ export const ProjectDetailsUI: React.FC<ProjectDetailsUIProps> = memo(
               </div>
             </>
           ) : (
-            <h2 className={style.container__notFound}>
-              здесь скоро появится информация
-            </h2>
+            <h2 className={style.container__notFound}>{t('soon')}</h2>
           )}
         </div>
       </div>

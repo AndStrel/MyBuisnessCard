@@ -2,11 +2,11 @@ import { ShowcaseUI } from '@ui/showcase';
 
 export const Showcase: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId); // Получаем элемент по id
+    const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({
-        behavior: 'smooth', // Плавная прокрутка
-        block: 'start', // Прокрутить к началу секции
+        behavior: 'smooth',
+        block: 'start',
       });
     }
   };

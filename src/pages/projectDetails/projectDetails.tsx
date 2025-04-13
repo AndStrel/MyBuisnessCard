@@ -1,8 +1,10 @@
 import { ProjectDetailsUI } from '@components/ui/pages/projectDetailsUI';
 import { useParams } from 'react-router-dom';
-import { cards } from '@utils/constants';
-
+import { useTranslation } from 'react-i18next';
+import { TCard } from 'types/card';
 export const ProjectDetails: React.FC = () => {
+  const { t } = useTranslation();
+  const cards = t('cards', { returnObjects: true }) as TCard[];
   // Получаем id ингредиента из URL
   const { id } = useParams();
 
@@ -11,7 +13,7 @@ export const ProjectDetails: React.FC = () => {
 
   // если информация о проекте не найдена
   if (!dataProject) {
-    return <div>Описание проекта скоро будет готово</div>;
+    return <div>{t('soon')}</div>;
   }
 
   return (

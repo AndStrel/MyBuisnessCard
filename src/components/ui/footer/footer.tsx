@@ -1,22 +1,23 @@
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import styles from './footer.module.scss';
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 interface FooterUIProps {
   downloadResume: () => void;
 }
 export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
+  const { t } = useTranslation();
   return (
     <footer className={styles.footer}>
       <section id="contacts" className={styles.contacts}>
         <div className={styles.mainContainer}>
           <div className={styles.firstBlock}>
             <div className={styles.firstBlock__title}>
-              <h2>контакты</h2>
+              <h2>{t('contacts')}</h2>
             </div>
             <div className={styles.firstBlock__description}>
               <div className={styles.firstBlock__descriptionText}>
-                <p>я открыт к сотрудничеству и новым проектам</p>
+                <p>{t('collaboration')}</p>
               </div>
               <div>
                 <Link

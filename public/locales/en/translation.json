@@ -1,0 +1,100 @@
+{
+  "profession": "developer",
+  "about": "about Me",
+  "description": "What excites me\u00A0about development is\u00A0the blend of\u00A0logic and creativity. Every project becomes a\u00A0source of\u00A0inspiration and motivates me\u00A0to\u00A0grow.",
+  "down": "down",
+  "love": "I love",
+  "projects": "my projects",
+  "soon": "🚀 Project description is in progress...",
+  "rpg": "RPG",
+  "system": "legal system",
+  "contacts": "contacts",
+  "collaboration": "I’m open to\u00A0collaboration and new projects.",
+  "words": [
+    "coding.",
+    "systems thinking.",
+    "cutting-edge tech.",
+    "architecture.",
+    "interactive design.",
+    "refactoring.",
+    "building things."
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "title": "Role-Playing Game",
+      "description": "A platform for creating and participating in role-playing adventures, with the ability to manage game elements, interact between participants, and customize adventures extensively.",
+      "posibilites": [
+        "Create and join adventures with customizable storylines, mechanics, and maps.",
+        "Add threads and posts, including private and public discussions.",
+        "Note templates (characters, locations, weapons, items, etc.).",
+        "Interactive maps with the ability to add notes.",
+        "Access control (hidden posts, guest links, participant management).",
+        "Subscriptions and notifications for new posts and threads.",
+        "Comments and reactions, ability to delete your own posts and leave adventures."
+      ],
+      "stack": [
+        "React",
+        "TS",
+        "HTML",
+        "SCSS",
+        "Vite",
+        "Husky",
+        "Cypress",
+        "Jest"
+      ],
+      "image": "/images/1.png",
+      "link": "https://www.linkedin.com/in/andstrelnikov/details/projects/"
+    },
+    {
+      "id": 2,
+      "title": "Legal System",
+      "description": "SPA application for interacting with digital versions of internal organizational documents. Allows users to view, comment, and manage access to documents in a user-friendly interface.",
+      "posibilites": [
+        "Role-based system and authorization using JWT and React Router.",
+        "View, search, and filter electronic documents.",
+        "Commenting and discussion on documents.",
+        "Access level configuration for users and groups.",
+        "E2E testing of access rights, reducing bugs by 20%.",
+        "Responsive design for proper display on different screens."
+      ],
+      "stack": [
+        "React",
+        "TS",
+        "SCSS",
+        "Vite",
+        "Husky",
+        "Cypress",
+        "Jest",
+        "React Hook Form",
+        "Yup"
+      ],
+      "image": "/images/2.png",
+      "link": null
+    },
+    {
+      "id": 3,
+      "title": "",
+      "description": "Brief description of project 3",
+      "image": "/images/3.png",
+      "link": null
+    },
+    {
+      "id": 4,
+      "title": "",
+      "description": "Brief description of project 4",
+      "image": "/images/4.png",
+      "link": null
+    }
+  ],
+  "back": "back",
+  "link": "link",
+  "info": "description",
+  "tasks": "tasks",
+  "stack": "stack",
+  "philosophy": "In\u00A0the process of\u00A0work, I\u00A0constantly discover ideas for improving and implementing projects, because it’s important to\u00A0me\u00A0that the result of\u00A0my\u00A0work helps people.",
+  "404": {
+    "oops": "oops...",
+    "text": "it\u00A0seems this page is\u00A0feeling unwell:("
+  }
+}

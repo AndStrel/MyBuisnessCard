@@ -1,6 +1,5 @@
 import { AboutPageUI } from '@ui/pages';
-import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import { useGSAP } from '@gsap/react';
@@ -48,8 +47,6 @@ export const AboutPage: React.FC = () => {
     { key: 'vite', text: 'Vite' },
     { key: 'webpack', text: 'Webpack' },
   ];
-
-  const navigate = useNavigate();
 
   useGSAP(() => {
     const timeline = gsap.timeline();

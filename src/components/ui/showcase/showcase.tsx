@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import styles from './showcase.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface ShowcaseProps {
   scrollToSection: (sectionId: string) => void;
 }
 
 export const ShowcaseUI: React.FC<ShowcaseProps> = ({ scrollToSection }) => {
+  const { t } = useTranslation();
   return (
     <section id="showCase" className={styles.showCase}>
       <div className={styles.showCase__titleContainer}>
@@ -15,11 +17,7 @@ export const ShowcaseUI: React.FC<ShowcaseProps> = ({ scrollToSection }) => {
       </div>
       <div className={styles.showCase__descriptionContainer}>
         <div className={styles.showCase__description}>
-          <p>
-            В разработке меня привлекает сочетание логики и творчества. Каждый
-            проект становится для меня источником вдохновения и мотивирует к
-            самосовершенствованию.
-          </p>
+          <p>{t('description')}</p>
         </div>
       </div>
       <div className={styles.showCase__buttonContainer}>
@@ -29,7 +27,7 @@ export const ShowcaseUI: React.FC<ShowcaseProps> = ({ scrollToSection }) => {
             scrollToSection('carousel');
           }}
         >
-          вниз
+          {t('down')}
         </button>
       </div>
     </section>

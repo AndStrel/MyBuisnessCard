@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import styles from './carouselNew.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   words: string[];
 }
 
 export const CarouselNewUI: React.FC<Props> = ({ words }) => {
+  const { t } = useTranslation();
   return (
     <section
       id="carousel"
@@ -18,7 +20,7 @@ export const CarouselNewUI: React.FC<Props> = ({ words }) => {
             styles.staticContainer,
           )}
         >
-          <span className={styles.carousel__fixedText}>я люблю</span>
+          <span className={styles.carousel__fixedText}>{t('love')}</span>
         </div>
         <div
           className={clsx(

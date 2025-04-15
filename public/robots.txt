@@ -1,6 +1,6 @@
 User-agent: *
 Disallow: /home
 
-Allow: /
+Allow: /#/about
 
 Sitemap: https://andstrelnikov.ru/sitemap.xml

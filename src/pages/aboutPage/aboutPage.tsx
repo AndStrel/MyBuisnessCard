@@ -8,12 +8,13 @@ gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);
 type SkillKeys =
   | 'react'
+  | 'redux'
   | 'ts'
   | 'js'
-  | 'html'
-  | 'css'
-  | 'redux'
+  | 'stimulus'
+  | 'twig'
   | 'git'
+  | 'docker'
   | 'jest'
   | 'cypress'
   | 'vite'
@@ -22,12 +23,13 @@ type SkillKeys =
 export const AboutPage: React.FC = () => {
   const skillRefs: Record<SkillKeys, React.RefObject<HTMLLIElement>> = {
     react: useRef<HTMLLIElement>(null),
+    redux: useRef<HTMLLIElement>(null),
     ts: useRef<HTMLLIElement>(null),
     js: useRef<HTMLLIElement>(null),
-    html: useRef<HTMLLIElement>(null),
-    css: useRef<HTMLLIElement>(null),
-    redux: useRef<HTMLLIElement>(null),
+    stimulus: useRef<HTMLLIElement>(null),
+    twig: useRef<HTMLLIElement>(null),
     git: useRef<HTMLLIElement>(null),
+    docker: useRef<HTMLLIElement>(null),
     jest: useRef<HTMLLIElement>(null),
     cypress: useRef<HTMLLIElement>(null),
     vite: useRef<HTMLLIElement>(null),
@@ -36,12 +38,13 @@ export const AboutPage: React.FC = () => {
 
   const skills: { key: SkillKeys; text: string }[] = [
     { key: 'react', text: 'React' },
+    { key: 'redux', text: 'Redux' },
     { key: 'ts', text: 'TypeScript' },
     { key: 'js', text: 'JavaScript' },
-    { key: 'html', text: 'HTML' },
-    { key: 'css', text: 'CSS' },
-    { key: 'redux', text: 'Redux' },
+    { key: 'stimulus', text: 'Stimulus' },
+    { key: 'twig', text: 'Twig' },
     { key: 'git', text: 'Git' },
+    { key: 'docker', text: 'Docker' },
     { key: 'jest', text: 'Jest' },
     { key: 'cypress', text: 'Cypress' },
     { key: 'vite', text: 'Vite' },
@@ -58,7 +61,7 @@ export const AboutPage: React.FC = () => {
         timeline.fromTo(
           ref.current,
           { opacity: 0, text: '' },
-          { opacity: 1, duration: 0.5, text },
+          { opacity: 1, duration: 0.3, text },
         );
       }
     });

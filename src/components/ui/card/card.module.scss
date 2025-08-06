@@ -1,7 +1,4 @@
 @use '/src/styles/utils/variables.scss' as *;
-.wrapper {
-  width: 100%;
-}
 .card {
   position: relative;
   width: 305px;
@@ -35,4 +32,9 @@
     height: 350px;
     padding-block-end: 20px;
   }
+}@media screen and (max-width: 450px) {
+  .wrapper {
+    width: 100%;
+  }
 }
+

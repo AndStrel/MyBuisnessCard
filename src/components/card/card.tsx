@@ -5,6 +5,6 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ card }) => {
-  const { id, title, image } = card;
-  return <CardUI key={id} id={id} title={title} image={image} />;
+  const { id, image } = card;
+  return <CardUI key={id} id={id} image={image} />;
 };

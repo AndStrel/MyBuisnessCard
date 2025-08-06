@@ -31,6 +31,7 @@
       max-width: 515px;
       margin-block: 40px;
       justify-content: space-evenly;
+      text-wrap: balance;
     }
     &__buttonContainer {
       display: flex;
@@ -42,7 +43,7 @@
         transition: all 0.5s ease;
         &:hover {
           color: $colorAccent;
-          text-shadow: 0px 0px 10px $colorAccent;
+          text-shadow: 0 0 10px $colorAccent;
         }
       }
     }
@@ -144,7 +145,7 @@
       &__buttonContainer {
         position: absolute;
         display: grid;
-        right: 40px;
+        right: 20px;
         top: 40px;
         padding-block-start: 0;
         & button {
@@ -155,7 +156,7 @@
     }
     .contacts {
       position: absolute;
-      right: 40px;
+      right: 20px;
       top: 156px;
       &__title {
         display: none;
@@ -168,6 +169,13 @@
       & a {
         font-size: 16px;
         line-height: 21.86px;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .about {
+      .main {
+        padding-inline: 20px;
       }
     }
   }

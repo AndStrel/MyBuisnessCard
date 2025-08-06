@@ -1,22 +1,19 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './card.module.scss';
 import clsx from 'clsx';
 
 interface CardUIProps {
   id: number;
-  title: string;
   image: string;
 }
 
-export const CardUI: React.FC<CardUIProps> = ({ id, title, image }) => {
+export const CardUI: React.FC<CardUIProps> = ({ id, image }) => {
   return (
-    <Link to={`/projects/${id}`}>
+    <Link to={`/projects/${id}`} className={clsx(styles.wrapper)}>
       <article
         className={clsx(styles.card)}
         style={{ backgroundImage: `url(${image})` }}
-      >
-        <div className={clsx(styles.card__title)}>{title}</div>
-      </article>
+      />
     </Link>
   );
 };

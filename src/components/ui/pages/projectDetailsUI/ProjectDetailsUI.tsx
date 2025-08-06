@@ -5,8 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 export const ProjectDetailsUI: React.FC<ProjectDetailsUIProps> = memo(
   ({ handleClick, dataProject }) => {
-    const { id, title, image, description, posibilites, stack, link } =
-      dataProject;
+    const { title, image, description, posibilites, stack, link } = dataProject;
     const { t } = useTranslation();
 
     return (
@@ -44,7 +43,7 @@ export const ProjectDetailsUI: React.FC<ProjectDetailsUIProps> = memo(
                     <p>{description}</p>
                   </div>
                   <div className={style.posibilitesContainer}>
-                    <div className={style.container__textContainer__title}>
+                    <div className={style.container__textContainer__wtitle}>
                       {t('tasks')}
                     </div>
                     <ul className={style.posibilitesList}>

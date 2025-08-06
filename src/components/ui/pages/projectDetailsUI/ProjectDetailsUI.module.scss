@@ -1,5 +1,5 @@
 @use '/src/styles/utils/variables.scss' as *;
-@use '/src/styles//utils/mixins.scss' as *;
+@use '/src/styles/utils/mixins.scss' as *;
 
 .projectDetails {
   margin-block: 40px 140px;
@@ -54,7 +54,7 @@
 
     &:hover .container__link {
       bottom: 10px;
-      right: 0px;
+      right: 0;
       transition: all 0.5s ease-in-out;
     }
   }
@@ -90,6 +90,10 @@
       font-size: 24px;
       line-height: 32.78px;
       font-weight: 400;
+
+      &__item {
+        text-wrap: balance;
+      }
     }
   }
 
@@ -136,7 +140,7 @@
 @media screen and (max-width: 425px) {
   .projectDetails {
     margin-block: 56px;
-    margin-inline: 40px;
+    margin-inline: 20px;
   }
 
   .buttonContainer {
@@ -144,9 +148,8 @@
   }
 
   .container {
-    // width: 324px;
     overflow: hidden;
-    margin: 0px;
+    margin: 0;
 
     &__titleContainer {
       margin-block: 0 40px;
@@ -157,7 +160,7 @@
     }
 
     &__imageContainer {
-      margin-inline: 0px;
+      margin-inline: 0;
       min-width: 100%;
       min-height: 350px;
       max-height: 350px;

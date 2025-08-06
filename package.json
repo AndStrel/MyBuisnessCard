@@ -18,7 +18,7 @@
     "test": "jest",
     "prepare": "husky",
     "predeploy": "cp CNAME dist/CNAME",
-    "deploy": "gh-pages -d dist -r git@github.com:AndStrel/MyBuisnessCard.git -u \"github-actions-bot <actions@github.com>\""
+    "deploy": "gh-pages -d dist -u \"github-actions-bot <actions@github.com>\" -r https://x-access-token:${GITHUB_TOKEN}@github.com/AndStrel/MyBuisnessCard.git"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",

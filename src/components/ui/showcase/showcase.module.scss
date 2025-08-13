@@ -34,7 +34,9 @@
   }
   &__description {
     max-width: 865px;
-    text-wrap: balance;
+    p {
+      text-wrap: balance;
+    }
   }
 
   &__buttonContainer {
@@ -74,6 +76,9 @@
     }
     &__description {
       max-width: 90%;
+      p {
+        text-wrap: auto;
+      }
     }
     &__buttonContainer {
       justify-content: flex-end;

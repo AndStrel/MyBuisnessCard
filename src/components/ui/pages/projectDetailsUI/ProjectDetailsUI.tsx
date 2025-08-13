@@ -43,7 +43,7 @@ export const ProjectDetailsUI: React.FC<ProjectDetailsUIProps> = memo(
                     <p>{description}</p>
                   </div>
                   <div className={style.posibilitesContainer}>
-                    <div className={style.container__textContainer__wtitle}>
+                    <div className={style.container__textContainer__title}>
                       {t('tasks')}
                     </div>
                     <ul className={style.posibilitesList}>

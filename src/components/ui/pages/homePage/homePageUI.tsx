@@ -12,7 +12,7 @@ export const HomePageUI: React.FC = () => {
       <main className={styles.main}>
         <Showcase />
         <CarouselNew />
-        <Portfolio />
+        {/*<Portfolio />*/}
       </main>
       <Footer />
     </div>

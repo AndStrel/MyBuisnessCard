@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git@github.com:AndStrel/MyBuisnessCard.git"
   },
-  "homepage": "https://andstrelnikov.ru",
+  "homepage": "https://vizitka.tech",
   "license": "MIT",
   "scripts": {
     "dev": "vite",

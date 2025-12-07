@@ -1,8 +1,8 @@
 # MyBusinessCard
 
-![CI](https://github.com/andstrelnikov/mybusinesscard/actions/workflows/ci.yaml/badge.svg)
+![CI](https://github.com/AndStrel/mybusinesscard/actions/workflows/ci.yaml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fandstrelnikov.ru)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fvizitka.tech)
 ![Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)
 ![Node](https://img.shields.io/badge/node-%3E=18.0.0-brightgreen)
 
@@ -13,7 +13,7 @@
 
 ## 🚀 Демо
 
-[andstrelnikov.ru](https://andstrelnikov.ru)
+[vizitka.tech](https://vizitka.tech)
 
 ---
 
@@ -60,7 +60,7 @@
 ## 📦 Установка и запуск
 
 ```bash
-git clone https://github.com/andstrelnikov/mybusinesscard.git
+git clone https://github.com/AndStre;/mybusinesscard.git
 cd mybusinesscard
 npm install
 npm run dev

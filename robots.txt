@@ -3,4 +3,4 @@ Disallow: /home
 
 Allow: /#/about
 
-Sitemap: https://andstrelnikov.ru/sitemap.xml
+Sitemap: https://vizitka.tech/sitemap.xml

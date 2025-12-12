@@ -21,7 +21,7 @@ export const HeaderUI: React.FC<HeaderUIProps> = ({
       <div className={clsx(styles.header__language, styles.header__item)}>
         {selectedLanguage !== 'en' && (
           <button
-            className={clsx(styles.button, styles.header__item)}
+            className={clsx(styles.header__buttonLanguage, styles.header__item)}
             onClick={() => language('en')}
           >
             EN
@@ -29,23 +29,22 @@ export const HeaderUI: React.FC<HeaderUIProps> = ({
         )}
         {selectedLanguage !== 'ru' && (
           <button
-            className={clsx(styles.button, styles.header__item)}
+            className={clsx(styles.header__buttonLanguage, styles.header__item)}
             onClick={() => language('ru')}
           >
             RU
           </button>
         )}
       </div>
-      <button
-        className={clsx(
-          styles.button,
-          styles.header__button,
-          styles.header__item,
-        )}
-        onClick={hanleClick}
-      >
-        {t('about')}
-      </button>
+      <div className={clsx(styles.header__item, styles.header__buttonAboutWrapper)}>
+        <button
+          className={styles.header__buttonAbout}
+          onClick={hanleClick}
+        >
+          {t('about')}
+        </button>
+      </div>
+
     </header>
   );
 };

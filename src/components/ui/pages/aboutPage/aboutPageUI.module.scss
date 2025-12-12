@@ -89,18 +89,6 @@
   }
 }
 
-// @media screen and (min-width: 768px) and (max-width: 1440px) {
-//   .about {
-//     .photo {
-//       margin-inline-end: 40px;
-//     }
-//     .content {
-//       padding-inline-end: 40px;
-//     }
-//   }
-
-// }
-
 @media screen and (max-width: 768px) {
   .about {
     .main {
@@ -146,7 +134,7 @@
         position: absolute;
         display: grid;
         right: 20px;
-        top: 40px;
+        top: 20px;
         padding-block-start: 0;
         & button {
           font-size: 16px;

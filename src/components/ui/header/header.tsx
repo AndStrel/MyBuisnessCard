@@ -36,15 +36,13 @@ export const HeaderUI: React.FC<HeaderUIProps> = ({
           </button>
         )}
       </div>
-      <div className={clsx(styles.header__item, styles.header__buttonAboutWrapper)}>
-        <button
-          className={styles.header__buttonAbout}
-          onClick={hanleClick}
-        >
+      <div
+        className={clsx(styles.header__item, styles.header__buttonAboutWrapper)}
+      >
+        <button className={styles.header__buttonAbout} onClick={hanleClick}>
           {t('about')}
         </button>
       </div>
-
     </header>
   );
 };

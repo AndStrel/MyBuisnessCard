@@ -79,17 +79,21 @@ export const App: React.FC = () => {
       window.addEventListener('mouseout', handleMouseOut);
 
       // Анимация кастомного курсора и ауры
-      gsap.to({}, 0.01, {
-        repeat: -1, // Бесконечный повтор
-        onRepeat: () => {
-          posX += (mouseX - posX) / 5; // Плавное приближение к позиции мыши
-          posY += (mouseY - posY) / 5;
+      gsap.to(
+        {},
+        {
+          duration: 0.01,
+          repeat: -1, // Бесконечный повтор
+          onRepeat: () => {
+            posX += (mouseX - posX) / 5; // Плавное приближение к позиции мыши
+            posY += (mouseY - posY) / 5;
 
-          // Обновление позиции кастомного курсора и ауры
-          gsap.set(cursor, { css: { left: mouseX, top: mouseY } });
-          gsap.set(aura, { css: { left: posX - 27, top: posY - 27 } });
+            // Обновление позиции кастомного курсора и ауры
+            gsap.set(cursor, { css: { left: mouseX, top: mouseY } });
+            gsap.set(aura, { css: { left: posX - 27, top: posY - 27 } });
+          },
         },
-      });
+      );
       return () => {
         document.removeEventListener('mousemove', handleMouseMove);
         window.removeEventListener('mouseout', handleMouseOut);

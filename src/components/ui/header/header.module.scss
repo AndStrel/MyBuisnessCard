@@ -5,6 +5,7 @@
   @include flex-between;
   width: 100%;
   margin-block: 40px 27px;
+  align-items: flex-start;
 
   &__item {
     flex: 1;

@@ -1,1 +1,0 @@
-export { CarouselNewUI } from './carouselNewUi';

@@ -1,7 +1,7 @@
-import { ProjectDetailsUI } from '@components/ui/pages/projectDetailsUI';
+import { ProjectDetailsUI } from './ui/ProjectDetailsUI';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { TCard } from 'types/card';
+import { TCard } from '@shared/types/card';
 export const ProjectDetails: React.FC = () => {
   const { t } = useTranslation();
   const cards = t('cards', { returnObjects: true }) as TCard[];

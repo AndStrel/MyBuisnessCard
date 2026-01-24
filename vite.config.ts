@@ -10,10 +10,16 @@ export default defineConfig({
       '@components': path.resolve(__dirname, 'src/components'),
       '@ui': path.resolve(__dirname, 'src/components/ui'),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@styles': path.resolve(__dirname, 'src/styles'),
-      '@utils': path.resolve(__dirname, 'src/utils'),
-      '@slices': path.resolve(__dirname, 'src/utils/slices'),
-      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@styles': path.resolve(__dirname, 'src/app/styles'),
+      '@utils': path.resolve(__dirname, 'src/shared/lib'),
+      '@assets': path.resolve(__dirname, 'src/shared/assets'),
+
+      // FSD Aliases
+      '@app': path.resolve(__dirname, 'src/app'),
+      '@widgets': path.resolve(__dirname, 'src/widgets'),
+      '@features': path.resolve(__dirname, 'src/features'),
+      '@entities': path.resolve(__dirname, 'src/entities'),
+      '@shared': path.resolve(__dirname, 'src/shared'),
     },
   },
   server: {

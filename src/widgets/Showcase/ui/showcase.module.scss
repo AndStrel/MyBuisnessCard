@@ -1,0 +1,88 @@
+@use '/src/app/styles/utils/variables.scss' as *;
+@use '/src/app/styles/utils/mixins.scss' as *;
+
+.showCase {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    width: 30px;
+    height: 85%;
+    color: $colorAccent;
+    background-image: url('../../../assets/image/ArrowL.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: emergence 2.5s infinite both;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__titleContainer {
+    @include flex-start;
+    width: 100%;
+  }
+  &__title {
+    max-width: 865px;
+  }
+
+  &__descriptionContainer {
+    @include flex-start;
+    width: 100%;
+    margin: 40px 0 56px;
+  }
+  &__description {
+    max-width: 750px;
+    p {
+      text-wrap: balance;
+    }
+  }
+
+  &__buttonContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    visibility: hidden;
+    &__button {
+      @include flex-center;
+      width: 200px;
+      height: 50px;
+      border: none;
+      border-radius: 10px;
+      background-color: $colorAccent;
+      font-size: 24px;
+      font-weight: 400;
+      color: $colorDark;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    margin-block: 56px;
+  }
+
+  .showCase {
+    &::after {
+      display: none;
+    }
+    &__titleContainer {
+      @include flex-center;
+    }
+    &__descriptionContainer {
+      margin: 20px 0 60px;
+      justify-content: flex-start;
+    }
+    &__description {
+      max-width: 90%;
+      p {
+        text-wrap: auto;
+      }
+    }
+    &__buttonContainer {
+      justify-content: flex-end;
+      visibility: visible;
+    }
+  }
+}

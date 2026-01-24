@@ -1,4 +1,4 @@
-import { AboutPageUI } from '@ui/pages';
+import { AboutPageUI } from './ui/AboutPageUI';
 import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';

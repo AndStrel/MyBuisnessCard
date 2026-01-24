@@ -2,10 +2,17 @@
 @use '/src/app/styles/utils/mixins.scss' as *;
 
 .app {
-  max-width: 1440px;
   margin-inline: auto;
   cursor: none;
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  // Ensure it takes space
 }

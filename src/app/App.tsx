@@ -41,25 +41,49 @@ export const App: React.FC = () => {
   // Состояние для отслеживания, когда курсор наводится на интерактивные элементы
   const [isHovered, setIsHovered] = useState(false);
 
-  // Для определения направления анимации
-  const prevDepth = useRef(getPathDepth(location.pathname));
-  const [direction, setDirection] = useState<'right' | 'left' | null>(null);
+  // --- Логика переходов ---
+  const activeKey = backgroundLocation
+    ? backgroundLocation.pathname
+    : location.pathname;
 
+  // Refs для каждого ключа маршрута, чтобы избежать предупреждения "findDOMNode is deprecated"
+  const nodeRefs = useRef<Record<string, React.RefObject<HTMLDivElement>>>({});
+  if (!nodeRefs.current[activeKey]) {
+    nodeRefs.current[activeKey] = React.createRef();
+  }
+  const nodeRef = nodeRefs.current[activeKey];
+
+  // Синхронный расчет направления
+  const depth = getPathDepth(location.pathname);
+  const prevDepth = useRef(depth);
+  const directionRef = useRef<'right' | 'left' | null>(null);
+
+  // Расчет направления на основе текущей и предыдущей глубины
+  if (depth > prevDepth.current) {
+    directionRef.current = 'right';
+  } else if (depth < prevDepth.current) {
+    directionRef.current = 'left';
+  } else {
+    // При обновлении той же страницы или первом рендере сбрасываем, но аккуратно
+    // Для анимации выхода важно сохранить направление
+    // Если мы рендеримся, и depth == prevDepth, значит навигации нет (или она завершена в useEffect)
+    // Но здесь render происходит ПРИ навигации.
+    // Если depth == prevDepth, то direction = null.
+    // Важно: в useEffect мы обновляем prevDepth.
+  }
+
+  // Обновление prevDepth после рендеринга
   useEffect(() => {
-    const depth = getPathDepth(location.pathname);
-    if (depth > prevDepth.current) {
-      setDirection('right');
-    } else if (depth < prevDepth.current) {
-      setDirection('left');
-    } else {
-      setDirection(null);
-    }
     prevDepth.current = depth;
-  }, [location.pathname]);
+  }, [depth]);
 
-  const onEnter = (node: HTMLElement) => {
-    if (!direction) return;
+  const onEnter = (node: HTMLElement | null) => {
+    const direction = directionRef.current;
+    if (!node || !direction) return;
 
+    // Новая страница: position absolute, чтобы наложиться/выехать
+    // 'right' (Home -> About): Выезжает справа (100%)
+    // 'left' (About -> Home): Выезжает слева (-100%)
     const xStart = direction === 'right' ? '100%' : '-100%';
 
     gsap.set(node, {
@@ -67,7 +91,7 @@ export const App: React.FC = () => {
       top: 0,
       left: 0,
       width: '100%',
-      zIndex: 1,
+      zIndex: 1, // Новая страница сверху
     });
 
     gsap.fromTo(
@@ -84,9 +108,14 @@ export const App: React.FC = () => {
     );
   };
 
-  const onExit = (node: HTMLElement) => {
-    if (!direction) return;
+  const onExit = (node: HTMLElement | null) => {
+    const direction = directionRef.current;
+    if (!node || !direction) return;
 
+    // Старая страница: position absolute, чтобы её могли вытолкнуть
+    // Иначе она останется в потоке и новая встанет ПОД ней или сдвинет весь layout
+    // 'right' (Home -> About): Уезжает влево (-100%)
+    // 'left' (About -> Home): Уезжает вправо (100%)
     const xEnd = direction === 'right' ? '-100%' : '100%';
 
     gsap.set(node, {
@@ -94,7 +123,7 @@ export const App: React.FC = () => {
       top: 0,
       left: 0,
       width: '100%',
-      zIndex: 0,
+      zIndex: 0, // Старая страница снизу
     });
 
     gsap.to(node, {
@@ -103,6 +132,7 @@ export const App: React.FC = () => {
       ease: 'power3.out',
     });
   };
+  // -----------------------------
 
   // Обработчик для событий наведения курсора
   const handleMouseEnter = () => {
@@ -201,21 +231,22 @@ export const App: React.FC = () => {
 
       <TransitionGroup component={null}>
         <CSSTransition
-          key={
-            backgroundLocation ? backgroundLocation.pathname : location.pathname
-          }
+          key={activeKey}
+          nodeRef={nodeRef}
           timeout={800}
-          onEnter={onEnter}
-          onExit={onExit}
+          onEnter={() => onEnter(nodeRef.current)}
+          onExit={() => onExit(nodeRef.current)}
           mountOnEnter={false}
           unmountOnExit={true}
         >
-          <Routes location={backgroundLocation || location}>
-            <Route path={PathEnum.start} element={<HomePage />} />
-            <Route path={PathEnum.about} element={<AboutPage />} />
-            <Route path={PathEnum.project} element={<ProjectDetails />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
+          <div ref={nodeRef} className={styles.page}>
+            <Routes location={backgroundLocation || location}>
+              <Route path={PathEnum.start} element={<HomePage />} />
+              <Route path={PathEnum.about} element={<AboutPage />} />
+              <Route path={PathEnum.project} element={<ProjectDetails />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </div>
         </CSSTransition>
       </TransitionGroup>
 

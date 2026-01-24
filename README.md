@@ -25,7 +25,7 @@
 - **Vite**
 - **SCSS / Sass**
 - **GSAP** — анимации
-- **Redux Toolkit** — управление состоянием
+
 - **React Router v7**
 - **Jest + Testing Library** — модульное тестирование
 - **Docker + Nginx** — контейнеризация и деплой
@@ -36,12 +36,12 @@
 
 ```
 src/
-├── components/   # UI-компоненты
-├── pages/        # Страницы
-├── assets/       # Статические ресурсы
-├── styles/       # SCSS-стили
-├── types/        # TypeScript типы
-└── utils/        # Утилиты, store, i18n
+├── app/          # App initialization & styles
+├── pages/        # Application pages
+├── widgets/      # Standalone UI blocks (Header, Footer, etc.)
+├── entities/     # Business entities (Project)
+├── shared/       # Shared UI, libs, types, assets
+└── main.tsx      # Entry point
 ```
 
 ---
@@ -126,7 +126,7 @@ npm run test
 - [x] ~~Деплой на GitHub Pages~~ → Перенесено на VPS
 - [x] Внедрить мультиязычность (i18n) ✅
 - [x] Интеграция с Яндекс.Метрикой ✅
-- [ ] Рефакторинг на Feature-Sliced Design (FSD)
+- [x] Рефакторинг на Feature-Sliced Design (FSD) ✅
 - [ ] Добавить светлую тему
 - [ ] Улучшить доступность (a11y)
 - [ ] Добавить блог / новостной раздел

@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@app/styles/main.scss';
 import { App } from '@app/App';
@@ -8,7 +8,9 @@ import '@shared/lib/i18n';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <App />
+      </React.Suspense>
     </BrowserRouter>
   </StrictMode>,
 );

@@ -1,1 +1,0 @@
-export { AboutPageUI } from './aboutPageUI';

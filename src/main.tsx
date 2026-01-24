@@ -1,18 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
-import '@styles/main.scss';
-import { App } from '@components/app';
-import store from '@utils/store/store';
+import '@app/styles/main.scss';
+import { App } from '@app/App';
 import { BrowserRouter } from 'react-router-dom';
-import './utils/i18n';
+import '@shared/lib/i18n';
 
 createRoot(document.getElementById('root')!).render(
-  <Provider store={store}>
-    <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </StrictMode>
-  </Provider>,
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>,
 );

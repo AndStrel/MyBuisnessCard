@@ -20,10 +20,15 @@
       "@components/*": ["components/*"],
       "@ui/*": ["components/ui/*"],
       "@pages/*": ["pages/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"],
-      "@slices/*": ["utils/slices/*"],
-      "@assets/*": ["assets/*"]
+      "@styles/*": ["app/styles/*"],
+      "@utils/*": ["shared/lib/*"],
+      "@assets/*": ["shared/assets/*"],
+
+      "@app/*": ["app/*"],
+      "@widgets/*": ["widgets/*"],
+      "@features/*": ["features/*"],
+      "@entities/*": ["entities/*"],
+      "@shared/*": ["shared/*"]
     }
   },
   "include": ["src"], // Включаем файлы в папке src

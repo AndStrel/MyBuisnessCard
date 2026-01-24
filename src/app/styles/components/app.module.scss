@@ -5,4 +5,7 @@
   max-width: 1440px;
   margin-inline: auto;
   cursor: none;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
 }

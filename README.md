@@ -36,12 +36,12 @@
 
 ```
 src/
-├── app/          # App initialization & styles
-├── pages/        # Application pages
-├── widgets/      # Standalone UI blocks (Header, Footer, etc.)
-├── entities/     # Business entities (Project)
-├── shared/       # Shared UI, libs, types, assets
-└── main.tsx      # Entry point
+├── app/          # Инициализация приложения и стили
+├── pages/        # Страницы приложения
+├── widgets/      # Самостоятельные UI-блоки (Header, Footer и др.)
+├── entities/     # Бизнес-сущности (Project)
+├── shared/       # Переиспользуемый код (UI, lib, types, assets)
+└── main.tsx      # Точка входа
 ```
 
 ---

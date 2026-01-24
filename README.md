@@ -1,10 +1,11 @@
 # MyBusinessCard
 
 ![CI](https://github.com/AndStrel/mybusinesscard/actions/workflows/ci.yaml/badge.svg)
+![Deploy](https://github.com/AndStrel/mybusinesscard/actions/workflows/deploy-vps.yaml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fvizitka.tech)
 ![Prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)
-![Node](https://img.shields.io/badge/node-%3E=18.0.0-brightgreen)
+![Docker](https://img.shields.io/badge/docker-ready-blue.svg)
 
 **Личный сайт-визитка Frontend-разработчика.**
 Проект создан для демонстрации навыков, портфолио и предоставления контактной информации. Сайт построен с использованием современных технологий, обладает адаптивной версткой и высокой производительностью.
@@ -27,85 +28,105 @@
 - **Redux Toolkit** — управление состоянием
 - **React Router v7**
 - **Jest + Testing Library** — модульное тестирование
-- **Cypress** (планируется/опционально) — e2e тестирование
+- **Docker + Nginx** — контейнеризация и деплой
 
 ---
 
 ## 📁 Структура проекта
 
-- `src/` — основная папка с исходным кодом
-- `components/` — переиспользуемые UI-компоненты
-- `features/` — модули с логикой и состоянием
-- `routes/` — страницы и маршруты
-- `assets/` — статические ресурсы
-- `styles/` — SCSS-переменные и глобальные стили
+```
+src/
+├── components/   # UI-компоненты
+├── pages/        # Страницы
+├── assets/       # Статические ресурсы
+├── styles/       # SCSS-стили
+├── types/        # TypeScript типы
+└── utils/        # Утилиты, store, i18n
+```
 
 ---
 
 ## ⚙️ Скрипты
 
-| Команда            | Назначение                         |
-| ------------------ | ---------------------------------- |
-| `npm run dev`      | Запуск проекта в режиме разработки |
-| `npm run build`    | Сборка проекта                     |
-| `npm run preview`  | Превью собранного проекта          |
-| `npm run lint`     | Проверка кода с помощью ESLint     |
-| `npm run lint:fix` | Автоисправление lint-ошибок        |
-| `npm run format`   | Форматирование кода Prettier       |
-| `npm run test`     | Запуск тестов (Jest)               |
-| `npm run deploy`   | Деплой на GitHub Pages             |
+| Команда               | Назначение                             |
+| --------------------- | -------------------------------------- |
+| `npm run dev`         | Запуск проекта в режиме разработки     |
+| `npm run build`       | Сборка проекта                         |
+| `npm run preview`     | Превью собранного проекта              |
+| `npm run lint`        | Проверка кода с помощью ESLint         |
+| `npm run lint:fix`    | Автоисправление lint-ошибок            |
+| `npm run format`      | Форматирование кода Prettier           |
+| `npm run test`        | Запуск тестов (Jest)                   |
+| `npm run docker:dev`  | Запуск в Docker (локальная разработка) |
+| `npm run docker:prod` | Запуск в Docker (production)           |
 
 ---
 
 ## 📦 Установка и запуск
 
+### Локально (без Docker)
+
 ```bash
-git clone https://github.com/AndStre;/mybusinesscard.git
-cd mybusinesscard
+git clone https://github.com/AndStrel/MyBuisnessCard.git
+cd MyBuisnessCard
 npm install
 npm run dev
+```
 
+### С Docker
+
+```bash
+git clone https://github.com/AndStrel/MyBuisnessCard.git
+cd MyBuisnessCard
+npm run docker:dev
+# Открыть http://localhost:3000
 ```
 
 ---
 
-# 🔍 Тестирование
+## 🔍 Тестирование
 
-- Юнит-тесты — Jest, React Testing Library
+- **Юнит-тесты** — Jest, React Testing Library
+- **Покрытие** — см. конфигурацию Jest (ts-jest)
 
-- Покрытие — см. конфигурацию Jest (ts-jest)
-
-- E2E (по плану) — Cypress (не указан в package.json, но упомянут)
+```bash
+npm run test
+```
 
 ---
 
 ## 🚀 Деплой
 
-Сайт развёрнут на GitHub Pages, автоматически публикуется с помощью GitHub Actions.
-Перед деплоем выполняется копирование CNAME в dist/, затем деплой через gh-pages.
+Сайт развёрнут на **VPS** в Docker-контейнере.
+
+**CI/CD Pipeline:**
+
+1. Push в `main` → GitHub Actions
+2. Lint + Test + Build
+3. Build Docker image → Push to ghcr.io
+4. SSH to VPS → Pull & Restart container
+
+**Workflows:**
+
+- `ci.yaml` — CI для develop и PR
+- `deploy-vps.yaml` — CI + Docker Deploy для main
 
 ---
 
 ## 📐 Линтинг и форматирование
 
 - **ESLint** — проверка стиля кода
-
 - **Prettier** — автоматическое форматирование
-
-- **Husky + lint-staged** — pre-commit хуки для проверки кода перед коммитом
+- **Husky + lint-staged** — pre-commit хуки
 
 ---
 
 ## 📌 TODO / Планы на будущее
 
-- [ ] Добавить блог / новостной раздел
-
-- [ ] Внедрить мультиязычность (i18n)
-
-- [ ] Улучшить доступность (a11y)
-
+- [x] ~~Деплой на GitHub Pages~~ → Перенесено на VPS
+- [x] Внедрить мультиязычность (i18n) ✅
+- [x] Интеграция с Яндекс.Метрикой ✅
+- [ ] Рефакторинг на Feature-Sliced Design (FSD)
 - [ ] Добавить светлую тему
-
-- [ ] Интеграция с аналитикой (Google Analytics, Yandex Metrica)
-
-- [ ] Возможный редизайн и доработка портфолио
+- [ ] Улучшить доступность (a11y)
+- [ ] Добавить блог / новостной раздел

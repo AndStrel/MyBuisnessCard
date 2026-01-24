@@ -1,7 +1,7 @@
 {
-  "name": "templaterepo",
+  "name": "vizitka-web",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:AndStrel/MyBuisnessCard.git"
@@ -17,8 +17,8 @@
     "preview": "vite preview",
     "test": "jest",
     "prepare": "husky",
-    "predeploy": "cp CNAME dist/CNAME",
-    "deploy": "gh-pages -d dist -u \"github-actions-bot <actions@github.com>\" -r https://x-access-token:${GITHUB_TOKEN}@github.com/AndStrel/MyBuisnessCard.git"
+    "docker:dev": "docker compose -f docker-compose.dev.yml up --build",
+    "docker:prod": "docker compose up -d"
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
@@ -54,7 +54,6 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
-    "gh-pages": "^6.3.0",
     "globals": "^15.13.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",

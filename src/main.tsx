@@ -4,15 +4,15 @@ import { Provider } from 'react-redux';
 import '@styles/main.scss';
 import { App } from '@components/app';
 import store from '@utils/store/store';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './utils/i18n';
 
 createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <StrictMode>
-      <HashRouter>
+      <BrowserRouter>
         <App />
-      </HashRouter>
+      </BrowserRouter>
     </StrictMode>
   </Provider>,
 );

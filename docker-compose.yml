@@ -1,0 +1,7 @@
+services:
+  vizitka:
+    image: ghcr.io/andstrel/vizitka-web:latest
+    container_name: vizitka-web
+    restart: unless-stopped
+    ports:
+      - "3000:80"

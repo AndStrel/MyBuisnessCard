@@ -1,0 +1,8 @@
+services:
+  vizitka:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vizitka-web-dev
+    ports:
+      - "3000:80"

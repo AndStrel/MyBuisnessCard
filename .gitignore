@@ -32,8 +32,7 @@ coverage/
 *.sln
 *.sw?
 
-# Optional lockfiles
-package-lock.json
+# Optional lockfiles (not used in this project)
 yarn.lock
 pnpm-lock.yaml
 

@@ -48,7 +48,7 @@ export const AboutPageUI: React.FC<AboutPageUIProps> = ({
                   <Link to="https://github.com/AndStrel">github</Link>
                 </li>
                 <li className={clsx(style.contacts__item)}>
-                  <Link to="https://t.me/andstrelnikov">telegram</Link>
+                  <Link to="https://t.me/and_front">telegram</Link>
                 </li>
                 <li className={clsx(style.contacts__item)}>
                   <Link to="https://linkedin.com/in/andstrelnikov">

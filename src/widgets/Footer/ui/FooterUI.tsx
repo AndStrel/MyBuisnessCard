@@ -69,7 +69,7 @@ export const FooterUI: React.FC<FooterUIProps> = ({ downloadResume }) => {
                 <Link to="https://github.com/AndStrel">github</Link>
               </li>
               <li className={styles.secondBlock__item}>
-                <Link to="https://t.me/andstrelnikov">telegram</Link>
+                <Link to="https://t.me/and_front">telegram</Link>
               </li>
               <li className={styles.secondBlock__item}>
                 <Link to="https://linkedin.com/in/andstrelnikov">linkedIn</Link>
